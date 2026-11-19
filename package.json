@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": ".venv/bin/python build/build_site.py",
+    "test": "bash tests/run-tests.sh"
+  },
+  "dependencies": {
+    "playwright": "^1.65.1",
+    "pyodide": "^314.0.8"
+  }
+}

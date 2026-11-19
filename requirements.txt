@@ -1,0 +1,14 @@
+# Build-time and test-harness pins (NFR-6). The site itself runs in the
+# visitor's browser via Pyodide; the runtime PyPI packages installed there by
+# micropip are a separate question (PRD Q2) and are NOT pinned here.
+# Verified with CPython 3.14.
+affine==3.0.1
+Markdown==3.11.3
+numpy==2.5.5
+pillow==13.0.0
+PyYAML==6.0.3
+qrcode==8.2
+rectpack==0.2.2
+shapely==2.2.0
+svgpathtools==1.8.0
+typing_extensions==4.16.0

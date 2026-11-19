@@ -1,0 +1,8 @@
+# build output (deployed separately, per PRD D6)
+site/
+
+# tooling
+node_modules/
+.venv/
+__pycache__/
+*.pyc
