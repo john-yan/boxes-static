@@ -133,7 +133,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 | FR-6 | P0 | Moving between pages keeps the Python runtime alive | Gallery/Menu/generator links and back/forward swap content without a document reload; modified clicks, external links and `target=_blank` are left to the browser; any failure falls back to a normal page load |
 | FR-7 | P0 | Works when hosted under a subpath (`/boxes-static/`) | All tests pass against the deployed GitHub Pages URL |
 | FR-8 | P0 | Invalid input shows upstream's error rendering, not a broken page | Bad value shows upstream's error SVG in the preview; a later valid value recovers |
-| FR-9 | P1 | Direct render URLs (`?...&render=1/2/3/4`) behave like the original: the page renders, downloads or shows the QR on load | Each `render` mode reproduces the original server's outcome |
+| FR-9 | P1 | Direct render URLs (`?...&render=1/2/3/4`) behave like the original: the page renders, downloads or shows the QR on load | Each `render` mode reproduces the original server's outcome. **Done 2026-11-19**, verified locally and against the live URL (`test-render-urls`) |
 | FR-10 | P1 | Translations: all 6 upstream locales (de, en, es, fr, pt_BR, zh_CN) with a language selector | Each locale's pages match the original server with that language selected |
 | FR-11 | P1 | Optional "Legal" link, configurable at build time (upstream's `legal_url`) | Link appears when configured |
 | FR-12 | P2 | DXF / G-code / PLT export without `pstoedit` | Each format opens in a reference tool. Needs a separate design: it means writing new exporters |
@@ -171,7 +171,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 |---|---|
 | Languages: English only | FR-10 (P1) |
 | Formats: no DXF/G-code/PLT/PDF | Non-goal for v1; FR-12 (P2) |
-| Direct `?render=N` URLs do not render | FR-9 (P1) |
+| Direct `?render=N` URLs do not render | Resolved 2026-11-19 (FR-9): all render modes act on page load. The result displays at a `blob:` URL, so the address bar changes (blob: limitation above still applies) |
 | "Generate" tab is a `blob:` URL: cannot be shared or bookmarked | Accepted for v1; partly addressed by FR-9 |
 | No rendering without JavaScript | Accepted (inherent to the approach) |
 | Response headers (`X-Frame-Options`, `nosniff`, `Referrer-Policy`, `X-Robots-Tag`) | GitHub Pages cannot set custom headers; accepted, documented |
@@ -187,7 +187,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 | **M0 — Repo setup** | Create public repo, add upstream submodule, LICENSE, README, this PRD | Repo public; PRD reviewed | ✅ Done |
 | **M1 — v1 build** | Port prototype build, shim and tests into the repo; pin build dependencies; make tests portable | All P0 tests pass locally against a local subpath simulation | ✅ Done 2026-11-19 — all suites green against `http://localhost:8765/boxes-static/` (`33b9c0e`) |
 | **M2 — Pages launch** | `gh-pages` deploy procedure; enable Pages; run the test suite against the live URL | FR-1–FR-8 verified on `https://john-yan.github.io/boxes-static/` | ✅ Done 2026-11-19 — full suite green against the live URL via `STATIC_BASE=… npm test` (`43231de`) |
-| **M3 — Parity+** | FR-9 direct render URLs, FR-10 languages, FR-11 legal link, NFR-7 cross-browser, NFR-8 accessibility | Acceptance criteria met | Open |
+| **M3 — Parity+** | FR-9 direct render URLs, FR-10 languages, FR-11 legal link, NFR-7 cross-browser, NFR-8 accessibility | Acceptance criteria met | In progress — FR-9 done 2026-11-19 |
 | **M4 — Optional** | FR-12 exporters, FR-13 pre-warm, offline hosting | Per separate decision | Open |
 
 ## 12. Risks and open questions

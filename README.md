@@ -59,6 +59,7 @@ STATIC_BASE=https://john-yan.github.io/boxes-static npm test
 | `test-parity` | FR-1: page screenshots identical to the original server |
 | `test-e2e` / `test-e2e-strict` | FR-3/4/5/8: preview, buttons, prefill, error SVG, page scripts |
 | `test-spa` | FR-6: in-page navigation keeps the Python worker alive |
+| `test-render-urls` | FR-9: direct `?render=1/2/3/4` URLs behave like the original server |
 | `test-sweep-pages` | FR-2: every generator's default-form output vs the original server |
 | `test-all` | FR-2: every generator vs upstream `examples/*.svg`, byte-for-byte |
 

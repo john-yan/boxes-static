@@ -17,17 +17,18 @@ BRANCH="${BRANCH:-gh-pages}"
 
 SLUG=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
 SRC_REV=$(git rev-parse --short HEAD)
+REMOTE_URL=$(git remote get-url "$REMOTE")
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
 if git ls-remote --exit-code --heads "$REMOTE" "$BRANCH" >/dev/null 2>&1; then
   echo "cloning existing $BRANCH from $REMOTE (history kept)"
-  git clone --quiet --branch "$BRANCH" --single-branch "$REMOTE" "$TMP"
+  git clone --quiet --branch "$BRANCH" --single-branch "$REMOTE_URL" "$TMP"
 else
   echo "creating new orphan branch $BRANCH"
   git init --quiet -b "$BRANCH" "$TMP"
-  git -C "$TMP" remote add origin "$(git remote get-url "$REMOTE")"
+  git -C "$TMP" remote add origin "$REMOTE_URL"
 fi
 
 rsync -a --delete --exclude=.git site/ "$TMP/"
@@ -43,11 +44,14 @@ else
 fi
 git -C "$TMP" push --quiet -u origin "$BRANCH"
 
-# enable (or re-point) Pages — idempotent
+# Pages only needs enabling once — a push to gh-pages triggers the build by
+# itself. The API write can 404 for tokens without Pages access, so treat it
+# as a warning with manual instructions rather than a failed deploy.
 if gh api "repos/$SLUG/pages" >/dev/null 2>&1; then
-  gh api --method PATCH "repos/$SLUG/pages" -f "source[branch]=$BRANCH" -f "source[path]=/" >/dev/null
+  echo "Pages already enabled: $(gh api "repos/$SLUG/pages" --jq .html_url)"
 else
-  gh api --method POST "repos/$SLUG/pages" -f "source[branch]=$BRANCH" -f "source[path]=/" >/dev/null
+  gh api --method POST "repos/$SLUG/pages" -f "source[branch]=$BRANCH" -f "source[path]=/" >/dev/null \
+    || echo "WARN: could not enable Pages via the API; enable it manually: Settings -> Pages -> $BRANCH / (root)" >&2
 fi
 OWNER=${SLUG%%/*}; REPO=${SLUG#*/}
 echo "deployed: https://${OWNER}.github.io/${REPO}/ (Pages build may take a minute)"

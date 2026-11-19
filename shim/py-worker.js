@@ -12,8 +12,12 @@ const CDN = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/`;
 const progress = (text) => postMessage({ type: "progress", text });
 
 const PY_INIT = `
-import sys
+import os, sys
 sys.path.insert(0, "/pysrc")
+# Same as the build: relative static URLs, so pages the worker serves (e.g.
+# HTML error pages) reference our own static/ instead of the module-level
+# default, which points at florianfesti.github.io.
+os.environ["STATIC_URL"] = "static"
 import boxesserver_mod as bs
 
 def handle(path, query, scheme, host, prefix):
