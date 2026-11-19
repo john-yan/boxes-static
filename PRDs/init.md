@@ -137,7 +137,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 | FR-10 | P1 | Translations: all 6 upstream locales (de, en, es, fr, pt_BR, zh_CN) with a language selector | Each locale's pages match the original server with that language selected |
 | FR-11 | P1 | Optional "Legal" link, configurable at build time (upstream's `legal_url`) | Link appears when configured |
 | FR-12 | P2 | DXF / G-code / PLT export without `pstoedit` | Each format opens in a reference tool. Needs a separate design: it means writing new exporters |
-| FR-13 | P2 | Start loading Python on Gallery/Menu before the first generator click | Opt-in or decided per §12, Q1 |
+| FR-13 | P2 | Start loading Python on Gallery/Menu before the first generator click | Opt-in or decided per §12, Q1. **Done 2026-11-19** — Q1 resolved: always on; first click after pre-warm ~0.15 s (cold: 10–14 s), verified locally and live (`test-prewarm`) |
 
 ### 8.2 Non-functional
 
@@ -175,7 +175,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 | "Generate" tab is a `blob:` URL: cannot be shared or bookmarked | Accepted for v1; partly addressed by FR-9 |
 | No rendering without JavaScript | Accepted (inherent to the approach) |
 | Response headers (`X-Frame-Options`, `nosniff`, `Referrer-Policy`, `X-Robots-Tag`) | GitHub Pages cannot set custom headers; accepted, documented |
-| Cold start and full-page-load cost | Mitigated by FR-6; FR-13 under discussion |
+| Cold start and full-page-load cost | Mitigated by FR-6; first visit pre-warmed by FR-13 (always on); direct full page loads of generator URLs remain cold |
 | About 1.9× slower rendering | Accepted (worst prototype case 0.6 s) |
 | Upstream changes need a rebuild and redeploy | By design (D4) |
 | Unpinned runtime package versions (`micropip` installs latest `markdown`, `qrcode`) | Open question Q2 |
@@ -188,7 +188,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 | **M1 — v1 build** | Port prototype build, shim and tests into the repo; pin build dependencies; make tests portable | All P0 tests pass locally against a local subpath simulation | ✅ Done 2026-11-19 — all suites green against `http://localhost:8765/boxes-static/` (`33b9c0e`) |
 | **M2 — Pages launch** | `gh-pages` deploy procedure; enable Pages; run the test suite against the live URL | FR-1–FR-8 verified on `https://john-yan.github.io/boxes-static/` | ✅ Done 2026-11-19 — full suite green against the live URL via `STATIC_BASE=… npm test` (`43231de`) |
 | **M3 — Parity+** | FR-9 direct render URLs, FR-10 languages, FR-11 legal link, NFR-7 cross-browser, NFR-8 accessibility | Acceptance criteria met | In progress — FR-9 done 2026-11-19 |
-| **M4 — Optional** | FR-12 exporters, FR-13 pre-warm, offline hosting | Per separate decision | Open |
+| **M4 — Optional** | FR-12 exporters, FR-13 pre-warm, offline hosting | Per separate decision | In progress — FR-13 done 2026-11-19 |
 
 ## 12. Risks and open questions
 
@@ -209,6 +209,8 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 
 * **Q1:** Start loading Python on Gallery/Menu (FR-13)? This speeds the first generator click but
   costs CPU and bandwidth for visitors who never open a generator.
+  **Resolved 2026-11-19: always on.** The site's purpose is running generators; every Gallery/Menu
+  visit boots the runtime in the background (accepted cost: ~10 s CPU, ~30 MB for never-clickers).
 * **Q2:** Pin versions of the `micropip`-installed packages? This keeps `micropip` (D5) but removes
   version drift.
 * **Q3:** Is P1 language support needed at launch, or after?

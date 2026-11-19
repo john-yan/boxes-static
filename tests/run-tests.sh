@@ -114,6 +114,7 @@ run_suite test-e2e         "FR-3/4/5/8"
 run_suite test-e2e-strict  "FR-5/8 strict"
 run_suite test-spa         "FR-6"
 run_suite test-render-urls "FR-9"
+run_suite test-prewarm      "FR-13"
 run_suite test-sweep-pages "FR-2 web sweep"
 run_suite test-all         "FR-2 python-level sweep"
 
