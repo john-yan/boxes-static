@@ -11,7 +11,6 @@ const ORIG = process.env.ORIG_BASE ?? "http://localhost:8001";
 // and stripped from SVG metadata before comparison
 const sURL = new URL(STATIC);
 const PREFIX = sURL.pathname.replace(/\/$/, "");
-const PREFIX_RE = PREFIX.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const names = [];
 for (const e of await readdir(new URL("../site/", import.meta.url), { withFileTypes: true })) {
@@ -49,13 +48,17 @@ await page.evaluate(({ base, scheme, host, prefix }) => {
 
 // Normalize ONLY the fields that legitimately differ between the two runs:
 // wall-clock creation time (it appears twice: "Creation date:" text and <dc:date>),
-// and the host:port (+ subpath prefix) the request was made to. Verified: the ORIGINAL
-// server differs from itself on exactly these when the same request is repeated a
-// second later.
+// and the request origin embedded in the "Url:"/"Url short:" metadata lines
+// (getURL = scheme://host + url_prefix + path): the worker renders for
+// STATIC's origin, the original server for ORIG's. Verified: the ORIGINAL
+// server differs from itself on exactly these when the same request is
+// repeated a second later.
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const stripMeta = (s) =>
   s.replace(/Creation date: [\d-]+ [\d:]+/g, "Creation date: <T>")
    .replace(/<dc:date>[^<]*<\/dc:date>/g, "<dc:date><T></dc:date>")
-   .replace(new RegExp(`localhost:\\d+(?:${PREFIX_RE})?`, "g"), "localhost:<P>");
+   .replace(new RegExp(esc(STATIC), "g"), "<BASE>")
+   .replace(new RegExp(esc(ORIG), "g"), "<BASE>");
 const isErr = (s) => /An error occurred!/.test(s);
 const results = {};
 const t0 = Date.now();
@@ -100,3 +103,12 @@ console.log(`identical responses that are upstream error SVGs (expected for gene
 for (const [n, r] of Object.entries(results)) {
   if (!["identical"].includes(r.verdict)) console.log(" ", r.verdict.padEnd(16), n.padEnd(26), JSON.stringify(r.worker ?? {}), JSON.stringify(r.orig ?? {}), r.error ?? "", r.diffAt ?? "");
 }
+
+// "both-failed" is acceptable parity (same failure on both sides, e.g.
+// TrayLayout without a layout). Anything else is a failure.
+const bad = Object.values(results).filter((r) => !["identical", "both-failed"].includes(r.verdict));
+if (bad.length) {
+  console.log(`\n${bad.length} GENERATOR(S) NOT PARITY-IDENTICAL`);
+  process.exit(1);
+}
+console.log("\nSWEEP PASSED");

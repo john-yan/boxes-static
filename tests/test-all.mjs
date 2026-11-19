@@ -62,3 +62,13 @@ console.log("SUMMARY", JSON.stringify(tally));
 for (const [k, r] of Object.entries(results)) {
   if (r.status !== "identical") console.log(r.status.padEnd(14), k.split(".").pop().padEnd(28), r.detail ?? "");
 }
+
+// "error" (generators that fail at defaults, e.g. TrayLayout) and
+// "no-reference" (no examples/<Name>.svg) match upstream's own test set;
+// only a byte difference from the reference is a failure.
+const differs = Object.values(results).filter((r) => r.status === "differs");
+if (differs.length) {
+  console.log(`\n${differs.length} GENERATOR(S) DIFFER FROM REFERENCES`);
+  process.exit(1);
+}
+console.log("\nSWEEP PASSED");
