@@ -46,6 +46,13 @@ suite. All browser tests run against `http://localhost:8765/boxes-static/` —
 the local stand-in for the GitHub Pages subpath (FR-7). Knobs: `ORIG_PORT`,
 `STATIC_PORT`, `PREFIX`, `BOXES_SRC` (override the upstream checkout).
 
+To verify a deployment instead, point the runner at the live URL (the original
+server still runs locally for the parity comparisons):
+
+```sh
+STATIC_BASE=https://john-yan.github.io/boxes-static npm test
+```
+
 | Suite | Covers |
 |---|---|
 | `test-render` | smoke: Boxes.py renders in Pyodide, byte-identical to `examples/ClosedBox.svg` |

@@ -7,6 +7,10 @@
 #   STATIC_PORT port for the subpath static server        (default 8765)
 #   PREFIX      URL subpath to serve the site under       (default /boxes-static)
 #   BOXES_SRC   upstream checkout to build from           (default ./upstream)
+#   STATIC_BASE set to a live URL (e.g. https://john-yan.github.io/boxes-static)
+#               to run the suites against a deployment instead of the local
+#               server (M2 verification). The original server still runs
+#               locally for the parity/sweep comparisons.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -14,7 +18,8 @@ ORIG_PORT="${ORIG_PORT:-8001}"
 STATIC_PORT="${STATIC_PORT:-8765}"
 PREFIX="${PREFIX:-/boxes-static}"
 export ORIG_BASE="http://localhost:${ORIG_PORT}"
-export STATIC_BASE="http://localhost:${STATIC_PORT}${PREFIX}"
+LIVE_STATIC="${STATIC_BASE:-}"   # caller-provided -> live mode
+export STATIC_BASE="${STATIC_BASE:-http://localhost:${STATIC_PORT}${PREFIX}}"
 
 ORIG_PID=""
 STATIC_PID=""
@@ -67,10 +72,13 @@ log "starting original server on :${ORIG_PORT}"
 ORIG_PID=$!
 
 # ---- 5. static site under a subpath (FR-7, local half) ----------------------
-log "starting subpath static server on :${STATIC_PORT}${PREFIX}"
-.venv/bin/python tests/serve_static.py --port "$STATIC_PORT" --prefix "$PREFIX" \
-  >/tmp/boxes-static.log 2>&1 &
-STATIC_PID=$!
+# skipped in live mode: the suites run against the deployed site instead
+if [ -z "$LIVE_STATIC" ]; then
+  log "starting subpath static server on :${STATIC_PORT}${PREFIX}"
+  .venv/bin/python tests/serve_static.py --port "$STATIC_PORT" --prefix "$PREFIX" \
+    >/tmp/boxes-static.log 2>&1 &
+  STATIC_PID=$!
+fi
 
 # ---- 6. readiness -----------------------------------------------------------
 wait_ready() {
@@ -85,7 +93,9 @@ wait_ready() {
   return 1
 }
 wait_ready "$ORIG_BASE/Menu" "original server"
-wait_ready "$STATIC_BASE/" "static server"
+if [ -z "$LIVE_STATIC" ]; then
+  wait_ready "$STATIC_BASE/" "static server"
+fi
 
 # ---- 7. suites (cheap first; keep going on failure) -------------------------
 declare -a failed_suites=()
