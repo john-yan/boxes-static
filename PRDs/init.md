@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Draft v0.1 |
+| **Status** | v0.2 — M0–M2 implemented (2026-11-19); site live |
 | **Date** | 2026-11-19 |
 | **Owner** | john-yan |
 | **Repository** | `john-yan/boxes-static` (public, to be created) |
@@ -182,13 +182,13 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 
 ## 11. Milestones
 
-| Milestone | Scope | Exit criteria |
-|---|---|---|
-| **M0 — Repo setup** | Create public repo, add upstream submodule, LICENSE, README, this PRD | Repo public; PRD reviewed |
-| **M1 — v1 build** | Port prototype build, shim and tests into the repo; pin build dependencies; make tests portable | All P0 tests pass locally against a local subpath simulation |
-| **M2 — Pages launch** | `gh-pages` deploy procedure; enable Pages; run the test suite against the live URL | FR-1–FR-8 verified on `https://john-yan.github.io/boxes-static/` |
-| **M3 — Parity+** | FR-9 direct render URLs, FR-10 languages, FR-11 legal link, NFR-7 cross-browser, NFR-8 accessibility | Acceptance criteria met |
-| **M4 — Optional** | FR-12 exporters, FR-13 pre-warm, offline hosting | Per separate decision |
+| Milestone | Scope | Exit criteria | Status |
+|---|---|---|---|
+| **M0 — Repo setup** | Create public repo, add upstream submodule, LICENSE, README, this PRD | Repo public; PRD reviewed | ✅ Done |
+| **M1 — v1 build** | Port prototype build, shim and tests into the repo; pin build dependencies; make tests portable | All P0 tests pass locally against a local subpath simulation | ✅ Done 2026-11-19 — all suites green against `http://localhost:8765/boxes-static/` (`33b9c0e`) |
+| **M2 — Pages launch** | `gh-pages` deploy procedure; enable Pages; run the test suite against the live URL | FR-1–FR-8 verified on `https://john-yan.github.io/boxes-static/` | ✅ Done 2026-11-19 — full suite green against the live URL via `STATIC_BASE=… npm test` (`43231de`) |
+| **M3 — Parity+** | FR-9 direct render URLs, FR-10 languages, FR-11 legal link, NFR-7 cross-browser, NFR-8 accessibility | Acceptance criteria met | Open |
+| **M4 — Optional** | FR-12 exporters, FR-13 pre-warm, offline hosting | Per separate decision | Open |
 
 ## 12. Risks and open questions
 
@@ -197,7 +197,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
 | Subpath hosting (`/boxes-static/`) breaks link, base or worker resolution: designed for, never tested | Medium | High | Local subpath simulation in M1; full suite against the live URL in M2 |
-| GitHub Pages redirect `/Name` to `/Name/` drops the query string, breaking saved URLs | Unknown | Medium | Verify in M2; if it does, Save to URL emits the trailing-slash form |
+| GitHub Pages redirect `/Name` to `/Name/` drops the query string, breaking saved URLs | Ruled out | Medium | Verified in M2: the 301 redirect preserves the query string (`/Name?x=1` → `/Name/?x=1`); no workaround needed |
 | Runtime CDN or PyPI outage, or an incompatible new release of `markdown`/`qrcode` | Low–Medium | High (site unusable or output drift) | Q2 (version pins); monitoring |
 | Upstream changes break the build: new server internals, new dependencies, Pyodide-incompatible modules | Medium per bump | Medium | Pinned submodule; re-run the full parity suite on every pin bump |
 | Pyodide lacks a future upstream compiled dependency | Low | High | Checked on each pin bump; affected generators can be marked unavailable |
@@ -213,6 +213,7 @@ Priority: **P0** = required for v1 launch, **P1** = soon after, **P2** = later o
   version drift.
 * **Q3:** Is P1 language support needed at launch, or after?
 * **Q4:** Should `gh-pages` keep full history, or be force-reset each deploy to stay small?
+  (Current implementation, `build/deploy.sh`: history kept, per D6.)
 * **Q5:** Custom domain, or stay on `john-yan.github.io/boxes-static/`?
 
 ## 13. Success metrics
