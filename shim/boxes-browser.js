@@ -212,6 +212,33 @@
     }
   }
 
+  // FR-9: a direct ?render=N URL behaves like the original server. The raw query
+  // goes to the worker unchanged (BServer.serve strips render= itself), and the
+  // response is acted on by its headers, exactly like a browser against the real
+  // server: attachment -> download, anything else -> display in this tab.
+  async function directRender() {
+    const mode = new URLSearchParams(location.search).get("render");
+    if (mode === null || mode === "0") return;
+    const gen = pageGen; // drop the result if the user swapped pages meanwhile
+    try {
+      const r = await request(location.search.slice(1));
+      if (gen !== pageGen) return;
+      setStatus(r.status.startsWith("200") ? "" : r.status);
+      const url = toBlobUrl(r);
+      const disposition = header(r, "content-disposition");
+      if (/attachment/i.test(disposition)) {
+        const m = /filename="?([^";]+)"?/.exec(disposition);
+        download(url, m ? m[1] : generatorName() + ".svg");
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+      } else {
+        location.href = url; // same tab, like a direct load on the original server;
+        // the document destruction frees the blob URL
+      }
+    } catch (e) {
+      setStatus("Error: " + e.message); // worker failed: stay on the form as a fallback
+    }
+  }
+
   // self.js addCallbacks() keys on the last path segment ("TrayLayout"), which is
   // empty for "<Name>/". Only compensate in that case to avoid double init.
   const PAGE_INIT = {
@@ -226,6 +253,7 @@
     const form = $("arguments");
     if (!form) return; // Gallery / Menu
     prefillFromQuery();
+    directRender();
     form.addEventListener("submit", onSubmit);
     if (swapped || location.pathname.endsWith("/")) {
       const init = window[PAGE_INIT[generatorName()]];
