@@ -31,6 +31,10 @@ REPO = HERE.parent
 CLONE = Path(os.environ.get("BOXES_SRC", REPO / "upstream")).resolve()
 SITE = REPO / "site"
 
+if not (CLONE / "scripts" / "boxesserver").exists():
+    sys.exit(f"upstream Boxes.py is not checked out at {CLONE}\n"
+             "run: git submodule update --init")
+
 SHIM_TAG = '<script src="shim/boxes-browser.js"></script>'
 
 # --- keep the generated forms identical on every machine --------------------

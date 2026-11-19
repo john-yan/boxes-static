@@ -19,6 +19,10 @@ upstream's own `BServer.serve()`. Full background, requirements and decisions:
 ## Build
 
 ```sh
+git clone --recurse-submodules https://github.com/john-yan/boxes-static.git
+cd boxes-static
+# (already cloned without submodules? run: git submodule update --init)
+
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 npm ci
