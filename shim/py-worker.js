@@ -72,6 +72,17 @@ await micropip.install(["markdown", "qrcode", "affine>=3.0.1"])
 let ready = null;
 
 self.onmessage = async (e) => {
+  // FR-13: boot the runtime without serving anything (pre-warm from Gallery/Menu)
+  if (e.data && e.data.type === "warm") {
+    try {
+      ready ??= init();
+      await ready;
+    } catch {
+      ready = null; // a failed init (e.g. offline) must be retried by the next request
+    }
+    return;
+  }
+
   const { id, path, query, scheme, host, prefix } = e.data;
   const fail = (err) =>
     postMessage({ id, ok: false, error: String(err && err.message ? err.message : err) });

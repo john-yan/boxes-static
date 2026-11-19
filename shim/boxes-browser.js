@@ -261,7 +261,18 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => setupGeneratorPage(false));
+  document.addEventListener("DOMContentLoaded", () => {
+  setupGeneratorPage(false);
+  // FR-13: Gallery/Menu boot the Python worker in the background so the first
+  // generator click is warm. The worker is per-document and survives in-page
+  // navigation; setStatus is a no-op here, so nothing visible changes.
+  if (!$("arguments")) {
+    const warm = () => getWorker().postMessage({ type: "warm" });
+    // let the page paint first; Safari lacks requestIdleCallback
+    if ("requestIdleCallback" in window) requestIdleCallback(warm, { timeout: 2000 });
+    else setTimeout(warm, 500);
+  }
+});
 
   // ------------------------------------------------------- in-page navigation
   const RESERVED = new Set(["static", "shim", "py"]);
