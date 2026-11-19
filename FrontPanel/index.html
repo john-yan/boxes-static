@@ -1,0 +1,200 @@
+<!DOCTYPE html><html>
+<head>
+    <base href="../">
+    <title>FrontPanel - Boxes</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="static/boxes-logo.svg" sizes="any">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+
+    <link rel="stylesheet" href="static/self.css">
+    <script src="static/self.js"></script>
+    <script src="shim/boxes-browser.js"></script>
+</head>
+<body onload="initArgsPage(0)">
+
+<div class="argumentcontainer">
+<div style="float: left;">
+<a href="./"><h1>Boxes.py</h1></a>
+</div>
+<div style="width: 120px; float: right;">
+<img alt="self-Logo" src="static/boxes-logo.svg" width="120">
+</div>
+<div>
+<div class="clear"></div>
+<hr>
+<div class="linkbar">
+<ul>
+  <li><a href="https://florianfesti.github.io/boxes/html/usermanual.html" target="_blank" rel="noopener">Help</a></li>
+  <li><a href="https://hackaday.io/project/10649-boxespy" target="_blank" rel="noopener">Home Page</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/index.html" target="_blank" rel="noopener">Documentation</a></li>
+  <li><a href="https://github.com/florianfesti/boxes" target="_blank" rel="noopener">Sources</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/give_back.html" target="_blank" rel="noopener">Give Back</a></li>
+    <li class="right">Preview <input id="preview_chk" type="checkbox" checked="checked"> </li>
+  <li class="right"><!-- No other languages to select found. -->  </li>
+
+</ul>
+</div>
+<hr>
+
+<h2 style="margin: 0px 0px 0px 20px;">FrontPanel</h2>
+        <p>Mounting Holes and cutouts for all your holy needs.</p>
+<form id="arguments" action="./FrontPanel" method="GET" rel="nofollow">
+        <h3 id="h-0" data-id="0" role="button" aria-expanded="true" tabindex="0" class="toggle open">FrontPanel Settings</h3>
+<table role="presentation" id="0">
+<tr><td id="layout_id"><label for="layout">layout</label></td><td><textarea name="layout" id="layout" aria-labeledby="layout_id layout_description" cols="72" rows="36">
+outline 100 100
+rect 50 60 80 30 3 True False
+text 50 91 7 "Super Front Panel With Buttons!" 0 bottom|center
+circle 10 45 3.5
+circle 30 45 3.5
+circle 50 45 3.5
+circle 70 45 3.5
+circle 90 45 3.5
+text 10 40 3 "BTN_1" 0 top|center
+text 35 45 3 "BTN_2" 90 top|center
+text 50 50 3 "BTN_3" 180 top|center
+text 65 45 3 "BTN_4" 270 top|center
+text 90 45 3 "5" 0 middle|center
+mountinghole 5 85 3 6 90
+mountinghole 95 85 3 6 90
+
+# Start another panel, 30x50
+outline 30 50
+rect 15 25 15 15 1 True True
+text 15 25 3 "__Fun!"   0 bottom|left
+text 15 25 3 "__Fun!"  45 bottom|left
+text 15 25 3 "__Fun!"  90 bottom|left
+text 15 25 3 "__Fun!" 135 bottom|left
+text 15 25 3 "__Fun!" 180 bottom|left
+text 15 25 3 "__Fun!" 225 bottom|left
+text 15 25 3 "__Fun!" 270 bottom|left
+
+text 3  10 2 "Another panel, for fun" 0 top|left
+
+
+# Let's create another panel with a nema motor on it
+outline 40 40
+nema 20 20 17
+</textarea></td><td id="layout_description"></td></tr>
+</table><h3 id="h-1" data-id="1" role="button" aria-expanded="true" tabindex="0" class="toggle open">Default Settings</h3>
+<table role="presentation" id="1">
+<tr><td id="thickness_id"><label for="thickness">thickness</label></td><td><input name="thickness" id="thickness" aria-labeledby="thickness_id thickness_description" type="text" value="3.0"></td><td id="thickness_description"><p>thickness of the material (in mm) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#thickness">🛈</a></p></td></tr>
+<tr><td id="burn_id"><label for="burn">burn</label></td><td><input name="burn" id="burn" aria-labeledby="burn_id burn_description" type="text" value="0.1"></td><td id="burn_description"><p>burn correction (in mm)(bigger values for tighter fit) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#burn">🛈</a></p></td></tr>
+<tr><td id="format_id"><label for="format">format</label></td><td><select name="format" id="format" aria-labeledby="format_id format_description" size="1">
+    <option value="svg" selected="selected">svg</option>
+    <option value="svg_Ponoko">svg_Ponoko</option>
+    <option value="ps">ps</option>
+    <option value="lbrn2">lbrn2</option></select>
+</td><td id="format_description"><p>format of resulting file <a href="https://florianfesti.github.io/boxes/html/usermanual.html#format">🛈</a></p></td></tr>
+<tr><td id="labels_id"><label for="labels">labels</label></td><td><input name="labels" type="hidden" value="0">
+<input name="labels" id="labels" aria-labeledby="labels_id labels_description" type="checkbox" value="1" checked="checked"></td><td id="labels_description"><p>label the parts (where available)</p></td></tr>
+<tr><td id="reference_id"><label for="reference">reference</label></td><td><input name="reference" id="reference" aria-labeledby="reference_id reference_description" type="text" value="100.0"></td><td id="reference_description"><p>print reference rectangle with given length (in mm)(zero to disable) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#reference">🛈</a></p></td></tr>
+<tr><td id="tabs_id"><label for="tabs">tabs</label></td><td><input name="tabs" id="tabs" aria-labeledby="tabs_id tabs_description" type="text" value="0.0"></td><td id="tabs_description"><p>width of tabs holding the parts in place (in mm)(not supported everywhere) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#tabs">🛈</a></p></td></tr>
+<tr><td id="qr_code_id"><label for="qr_code">qr_code</label></td><td><input name="qr_code" type="hidden" value="0">
+<input name="qr_code" id="qr_code" aria-labeledby="qr_code_id qr_code_description" type="checkbox" value="1"></td><td id="qr_code_description"><p>Add a QR Code with link or command line to the generated output</p></td></tr>
+<tr><td id="inner_corners_id"><label for="inner_corners">inner_corners</label></td><td><select name="inner_corners" id="inner_corners" aria-labeledby="inner_corners_id inner_corners_description" size="1">
+    <option value="loop" selected="selected">loop</option>
+    <option value="corner">corner</option>
+    <option value="backarc">backarc</option></select>
+</td><td id="inner_corners_description"><p>style for inner corners <a href="https://florianfesti.github.io/boxes/html/usermanual.html#inner-corners">🛈</a></p></td></tr>
+<tr><td id="spacing_id"><label for="spacing">spacing</label></td><td><input name="spacing" id="spacing" aria-labeledby="spacing_id spacing_description" type="text" value="0.5"></td><td id="spacing_description"><p>spacing around parts (multiples of thickness [: extra space in mm]) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#spacing">🛈</a></p></td></tr>
+<tr><td id="debug_id"><label for="debug">debug</label></td><td><input name="debug" type="hidden" value="0">
+<input name="debug" id="debug" aria-labeledby="debug_id debug_description" type="checkbox" value="1"></td><td id="debug_description"><p>print surrounding boxes for some structures <a href="https://florianfesti.github.io/boxes/html/usermanual.html#debug">🛈</a></p></td></tr>
+</table>
+<input type="hidden" name="language" id="language" value="None">
+
+<p>
+    <button name="render" value="1" formtarget="_blank">Generate</button>
+    <button name="render" value="2" formtarget="_self">Download</button>
+    <button name="render" value="0" formtarget="_self">Save to URL</button>
+    <button name="render" value="3" formtarget="_blank">QR Code</button>
+</p>
+</form>
+</div>
+
+<div class="clear"></div>
+<hr>
+<div class="description">
+<script type="module" src="https://md-block.verou.me/md-block.js"></script>
+<p><md-block></p>
+<p>This will help you create font (and side and top) panels for your
+boxes that are pre-configured for all the bits and bobs you'd like to
+install</p>
+<pre><code>The layout can create several types of holes including rectangles,
+circles and mounting holes.  The default shows an example layout with all
+currently supported objects.
+</code></pre>
+<h4></h4>
+<p><code>rect x y w h [cr=0] [cx=True] [cy=True]</code></p>
+<pre><code> x: x position
+ y: y position
+ w: width
+ h: height
+cr: optional, Corner radius, default=0
+cx: optional, Center x.  the x position denotes the center of the rectangle.
+    accepts t, T, 1, or other true-like values.
+cy: optional, Center y.  the y position denotes the center of the rectangle.
+</code></pre>
+<h4>outline</h4>
+<p><code>rect w h</code></p>
+<pre><code>w: width
+h: height
+</code></pre>
+<p><code>outline</code> has a special meaning: You can create multiple panel outlines with one command.
+This has the effect of making it easy to manage all the holes on all the sides of
+your boxes.</p>
+<h4>circle</h4>
+<p><code>circle x y r</code></p>
+<pre><code>x: x position
+y: y position
+r: radius
+</code></pre>
+<h4>mountinghole</h4>
+<p>mountinghole x y d_shaft [d_head=0] [angle=0]</p>
+<pre><code>      x: x position
+      y: y position
+d_shaft: diameter of the shaft part of the mounting hole
+ d_head: optional. diameter of the head
+  angle: optional. angle of the mounting hole
+</code></pre>
+<h4>text</h4>
+<p><code>text x y size "some text" [angle=0] [align=bottom|left]</code></p>
+<pre><code>    x: x position
+    y: y position
+ size: size, in mm
+ text: text to render.  This *must* be in quotation marks
+angle: angle (in degrees)
+align: string with combinations of (top|middle|bottom) and (left|center|right),
+       separated by '|'.  Default is 'bottom|left'
+</code></pre>
+<h4>nema</h4>
+<p><code>nema x y size [screwhole_size=0]</code></p>
+<pre><code>    x: x position (center of shaft)
+    y: y position (center of shaft)
+ size: nema size.  One of [8, 11, 14, 16, 17, 23, 24, 34, 42]
+screw: screw size, in mm.  Optional.  Default=0, which means the default size
+</code></pre>
+<p></md-block></p><div>
+<img style="width:100%;" src="static/samples/FrontPanel.jpg" onerror="this.parentElement.innerHTML = 'There is no image yet. Please donate an image of your project on <a href=&quot;https://github.com/florianfesti/boxes/issues/628&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>GitHub</a>!';" alt="Picture of box.">
+</div>
+</div>
+</div>
+<div id="preview">
+  <div id="preview_buttons">
+    Zoom: 
+    <button type="button" onclick="preview_scale/=1.2; document.getElementById('preview_img').style.width = preview_scale + '%';">-</button>
+    <button type="button" onclick="preview_scale*= 1.2; document.getElementById('preview_img').style.width = preview_scale + '%';" >+</button>
+    <button type="button" onclick="preview_scale=100; document.getElementById('preview_img').style.width = preview_scale + '%';" >Reset</button>
+  </div>
+<div style="overflow: auto;">
+<figure id="preview_figure" style="width: max-content;">
+<img id="preview_img" style="width:100%" src="static/nothing.png">
+</figure>
+</div>
+</div>
+</body>
+</html>
+        

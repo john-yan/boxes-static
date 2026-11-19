@@ -1,0 +1,186 @@
+<!DOCTYPE html><html>
+<head>
+    <base href="../">
+    <title>FatBallDispenser - Boxes</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="static/boxes-logo.svg" sizes="any">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+
+    <link rel="stylesheet" href="static/self.css">
+    <script src="static/self.js"></script>
+    <script src="shim/boxes-browser.js"></script>
+</head>
+<body onload="initArgsPage(0)">
+
+<div class="argumentcontainer">
+<div style="float: left;">
+<a href="./"><h1>Boxes.py</h1></a>
+</div>
+<div style="width: 120px; float: right;">
+<img alt="self-Logo" src="static/boxes-logo.svg" width="120">
+</div>
+<div>
+<div class="clear"></div>
+<hr>
+<div class="linkbar">
+<ul>
+  <li><a href="https://florianfesti.github.io/boxes/html/usermanual.html" target="_blank" rel="noopener">Help</a></li>
+  <li><a href="https://hackaday.io/project/10649-boxespy" target="_blank" rel="noopener">Home Page</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/index.html" target="_blank" rel="noopener">Documentation</a></li>
+  <li><a href="https://github.com/florianfesti/boxes" target="_blank" rel="noopener">Sources</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/give_back.html" target="_blank" rel="noopener">Give Back</a></li>
+    <li class="right">Preview <input id="preview_chk" type="checkbox" checked="checked"> </li>
+  <li class="right"><!-- No other languages to select found. -->  </li>
+
+</ul>
+</div>
+<hr>
+
+<h2 style="margin: 0px 0px 0px 20px;">FatBallDispenser</h2>
+        <p>Birdhouse for fat balls.</p>
+<form id="arguments" action="./FatBallDispenser" method="GET" rel="nofollow">
+        <h3 id="h-0" data-id="0" role="button" aria-expanded="true" tabindex="0" class="toggle open">FatBallDispenser Settings</h3>
+<table role="presentation" id="0">
+<tr><td id="sides_id"><label for="sides">sides</label></td><td><input name="sides" id="sides" aria-labeledby="sides_id sides_description" type="text" value="6"></td><td id="sides_description"><p>The number of sides of the floor plan.</p></td></tr>
+<tr><td id="pole_diameter_id"><label for="pole_diameter">pole_diameter</label></td><td><input name="pole_diameter" id="pole_diameter" aria-labeledby="pole_diameter_id pole_diameter_description" type="text" value="8.0"></td><td id="pole_diameter_description"><p>The diameter of the poles.</p></td></tr>
+<tr><td id="ball_diameter_id"><label for="ball_diameter">ball_diameter</label></td><td><input name="ball_diameter" id="ball_diameter" aria-labeledby="ball_diameter_id ball_diameter_description" type="text" value="75.0"></td><td id="ball_diameter_description"><p>The diameter of the fat balls. Give some extra mm to make it a loose fit</p></td></tr>
+<tr><td id="balcony_width_id"><label for="balcony_width">balcony_width</label></td><td><input name="balcony_width" id="balcony_width" aria-labeledby="balcony_width_id balcony_width_description" type="text" value="15.0"></td><td id="balcony_width_description"><p>The width of the area outside of the poles.</p></td></tr>
+<tr><td id="balcony_height_id"><label for="balcony_height">balcony_height</label></td><td><input name="balcony_height" id="balcony_height" aria-labeledby="balcony_height_id balcony_height_description" type="text" value="20.0"></td><td id="balcony_height_description"><p>The height of the balcony in mm. Set to 0 if no walls are needed.</p></td></tr>
+<tr><td id="drain_hole_diameter_id"><label for="drain_hole_diameter">drain_hole_diameter</label></td><td><input name="drain_hole_diameter" id="drain_hole_diameter" aria-labeledby="drain_hole_diameter_id drain_hole_diameter_description" type="text" value="5.0"></td><td id="drain_hole_diameter_description"><p>The diameter of the hole of the floor (to drain rainwater)
+                    in mm. Set to 0 if you don't need it.</p></td></tr>
+<tr><td id="pole_clearance_id"><label for="pole_clearance">pole_clearance</label></td><td><input name="pole_clearance" id="pole_clearance" aria-labeledby="pole_clearance_id pole_clearance_description" type="text" value="9.0"></td><td id="pole_clearance_description"><p>The minimum distance between a pole and the central
+                    refill hole in the ceiling in mm.</p></td></tr>
+<tr><td id="slide_clearance_id"><label for="slide_clearance">slide_clearance</label></td><td><input name="slide_clearance" id="slide_clearance" aria-labeledby="slide_clearance_id slide_clearance_description" type="text" value="1.0"></td><td id="slide_clearance_description"><p>The gap between the parts that slide into each other
+                    in the locking mechanism in mm.</p></td></tr>
+<tr><td id="spacer_width_id"><label for="spacer_width">spacer_width</label></td><td><input name="spacer_width" id="spacer_width" aria-labeledby="spacer_width_id spacer_width_description" type="text" value="15.0"></td><td id="spacer_width_description"><p>The width of the spacer (part of the locking mechanism) in mm.</p></td></tr>
+<tr><td id="pole_clearance_factor_id"><label for="pole_clearance_factor">pole_clearance_factor</label></td><td><input name="pole_clearance_factor" id="pole_clearance_factor" aria-labeledby="pole_clearance_factor_id pole_clearance_factor_description" type="text" value="0.9"></td><td id="pole_clearance_factor_description"><p>The fraction of the pole clearance which is being used for
+                    the locking mechanism.</p></td></tr>
+<tr><td id="roof_overhang_id"><label for="roof_overhang">roof_overhang</label></td><td><input name="roof_overhang" id="roof_overhang" aria-labeledby="roof_overhang_id roof_overhang_description" type="text" value="20.0"></td><td id="roof_overhang_description"><p>Defines how much wider than the bottom floor the roof is.</p></td></tr>
+<tr><td id="roof_height_id"><label for="roof_height">roof_height</label></td><td><input name="roof_height" id="roof_height" aria-labeledby="roof_height_id roof_height_description" type="text" value="50.0"></td><td id="roof_height_description"><p>The height of the roof in mm.</p></td></tr>
+<tr><td id="roof_hole_diameter_id"><label for="roof_hole_diameter">roof_hole_diameter</label></td><td><input name="roof_hole_diameter" id="roof_hole_diameter" aria-labeledby="roof_hole_diameter_id roof_hole_diameter_description" type="text" value="5.0"></td><td id="roof_hole_diameter_description"><p>The diameter of the hole of the roof in mm.
+                    Set to 0 if you don't want to attach a hanger.</p></td></tr>
+<tr><td id="roof_maintenance_clearance_id"><label for="roof_maintenance_clearance">roof_maintenance_clearance</label></td><td><input name="roof_maintenance_clearance" id="roof_maintenance_clearance" aria-labeledby="roof_maintenance_clearance_id roof_maintenance_clearance_description" type="text" value="20.0"></td><td id="roof_maintenance_clearance_description"><p>The distance from on bottom corner of the roof to the maintenance hole in mm.</p></td></tr>
+<tr><td id="roof_support_fraction_id"><label for="roof_support_fraction">roof_support_fraction</label></td><td><input name="roof_support_fraction" id="roof_support_fraction" aria-labeledby="roof_support_fraction_id roof_support_fraction_description" type="text" value="0.3"></td><td id="roof_support_fraction_description"><p>The radius of the roof support part as a fraction of the roof radius.</p></td></tr>
+</table><h3 id="h-1" data-id="1" role="button" aria-expanded="true" tabindex="0" class="toggle open">Default Settings</h3>
+<table role="presentation" id="1">
+<tr><td id="thickness_id"><label for="thickness">thickness</label></td><td><input name="thickness" id="thickness" aria-labeledby="thickness_id thickness_description" type="text" value="3.0"></td><td id="thickness_description"><p>thickness of the material (in mm) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#thickness">🛈</a></p></td></tr>
+<tr><td id="burn_id"><label for="burn">burn</label></td><td><input name="burn" id="burn" aria-labeledby="burn_id burn_description" type="text" value="0.1"></td><td id="burn_description"><p>burn correction (in mm)(bigger values for tighter fit) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#burn">🛈</a></p></td></tr>
+<tr><td id="format_id"><label for="format">format</label></td><td><select name="format" id="format" aria-labeledby="format_id format_description" size="1">
+    <option value="svg" selected="selected">svg</option>
+    <option value="svg_Ponoko">svg_Ponoko</option>
+    <option value="ps">ps</option>
+    <option value="lbrn2">lbrn2</option></select>
+</td><td id="format_description"><p>format of resulting file <a href="https://florianfesti.github.io/boxes/html/usermanual.html#format">🛈</a></p></td></tr>
+<tr><td id="labels_id"><label for="labels">labels</label></td><td><input name="labels" type="hidden" value="0">
+<input name="labels" id="labels" aria-labeledby="labels_id labels_description" type="checkbox" value="1" checked="checked"></td><td id="labels_description"><p>label the parts (where available)</p></td></tr>
+<tr><td id="reference_id"><label for="reference">reference</label></td><td><input name="reference" id="reference" aria-labeledby="reference_id reference_description" type="text" value="100.0"></td><td id="reference_description"><p>print reference rectangle with given length (in mm)(zero to disable) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#reference">🛈</a></p></td></tr>
+<tr><td id="tabs_id"><label for="tabs">tabs</label></td><td><input name="tabs" id="tabs" aria-labeledby="tabs_id tabs_description" type="text" value="0.0"></td><td id="tabs_description"><p>width of tabs holding the parts in place (in mm)(not supported everywhere) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#tabs">🛈</a></p></td></tr>
+<tr><td id="qr_code_id"><label for="qr_code">qr_code</label></td><td><input name="qr_code" type="hidden" value="0">
+<input name="qr_code" id="qr_code" aria-labeledby="qr_code_id qr_code_description" type="checkbox" value="1"></td><td id="qr_code_description"><p>Add a QR Code with link or command line to the generated output</p></td></tr>
+<tr><td id="inner_corners_id"><label for="inner_corners">inner_corners</label></td><td><select name="inner_corners" id="inner_corners" aria-labeledby="inner_corners_id inner_corners_description" size="1">
+    <option value="loop" selected="selected">loop</option>
+    <option value="corner">corner</option>
+    <option value="backarc">backarc</option></select>
+</td><td id="inner_corners_description"><p>style for inner corners <a href="https://florianfesti.github.io/boxes/html/usermanual.html#inner-corners">🛈</a></p></td></tr>
+<tr><td id="spacing_id"><label for="spacing">spacing</label></td><td><input name="spacing" id="spacing" aria-labeledby="spacing_id spacing_description" type="text" value="0.5"></td><td id="spacing_description"><p>spacing around parts (multiples of thickness [: extra space in mm]) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#spacing">🛈</a></p></td></tr>
+<tr><td id="debug_id"><label for="debug">debug</label></td><td><input name="debug" type="hidden" value="0">
+<input name="debug" id="debug" aria-labeledby="debug_id debug_description" type="checkbox" value="1"></td><td id="debug_description"><p>print surrounding boxes for some structures <a href="https://florianfesti.github.io/boxes/html/usermanual.html#debug">🛈</a></p></td></tr>
+</table>
+<input type="hidden" name="language" id="language" value="None">
+
+<p>
+    <button name="render" value="1" formtarget="_blank">Generate</button>
+    <button name="render" value="2" formtarget="_self">Download</button>
+    <button name="render" value="0" formtarget="_self">Save to URL</button>
+    <button name="render" value="3" formtarget="_blank">QR Code</button>
+</p>
+</form>
+</div>
+
+<div class="clear"></div>
+<hr>
+<div class="description">
+<h3>Description</h3>
+<p>Fat balls are quite common to feed tits. Here you can build a dispenser that protects
+the fat balls from rain and snow. The design was tested using 4mm plywood for the
+main structural parts. For the spacer of the locking mechanism two layers of 3mm
+plywood have been stacked. The poles were made from 8mm diameter beech rod and 19cm
+in length. Some basic consistency checks have been made for different numbers, but
+only the defaults have ever been built.</p>
+<p>The final dispenser consists of two parts which slide into each other. You can mount
+a hook to hang it into a tree. All edges that have angles different from 90 degrees (chamfers)
+have engraved guiding lines which indicate the angle. You have to sand the edge such
+that the pieces fit together.</p>
+<p>The top part (roof) consists of the the following elements for a N sided dispenser:</p>
+<ul>
+<li>The N sided roof bottom plate which supports the roof tiles. It has a central cut out
+    which is needed for assembly and on the bottom side an engraved line which indicates the
+    position of the mounting bracket.</li>
+<li>N triangles forming the roof. They also have a small arc at the tip (roof_hole_diameter)
+  which acts as a drilling guide if you want to mount a hook.</li>
+<li>The N sided roof support piece which has a central hole for the hook. It is been mounted
+  to the roof tiles through the hole in the roof bottom plate to support the roof
+  tiles and acts as a mounting plate for the hook.</li>
+<li>Spacer(s); in the reference builds 2 spacers using 3mm plywood have been used. The spacer
+  needs to be a bit thicker than the ceiling (see below). That's the smaller
+  "U" shaped part which is glued to the bottom side of the roof bottom plate.</li>
+<li>The bracket is also "U" shaped and a bit wider than the spacer. This is glued to the
+  bottom of the spacer and holds the cage (bottom part).</li>
+</ul>
+<p>The bottom part (cage) consists of the following elements:</p>
+<ul>
+<li>The ceiling is N sided with the central refill hole and N smaller holes into which
+  the poles are fitted.</li>
+<li>The N sided floor part with finger joints for the balcony walls and holes for
+  the poles. A central hole to drain rain water can be added as well.</li>
+<li>N balcony walls surrounding the floor.</li>
+<li>N poles that join floor and ceiling (not part of the drawing)</li>
+</ul>
+<p>Other parts needed for assembly:</p>
+<ul>
+<li>Wooden rod (N times the length of the poles).</li>
+<li>A hook (e.g. M5x50mm)</li>
+<li>A washer to distribute the load of the hook to the support piece</li>
+<li>One or two nuts to secure the hook</li>
+<li>Optional, a piece of wire mesh</li>
+</ul>
+<p>Assembly:</p>
+<ul>
+<li>Sand all chamfers</li>
+<li>Glue balcony walls to the floor</li>
+<li>Glue pairs of roof tiles and use the roof bottom plate as a jig, Hot glue may be used to
+    tack the parts.</li>
+<li>Glue all roof tiles to form the roof</li>
+<li>Glue spacer(s) and the bracket into a stack</li>
+<li>Glue roof tiles to the roof bottom plate and attach the support piece</li>
+<li>Glue the stack to the roof bottom plate</li>
+<li>Cut the poles to length</li>
+<li>If you want to use multiple colors paint now, otherwise you also can paint later</li>
+<li>After painting you may need to get the paint out of the pole holes again using a drillbit</li>
+<li>Glue the poles into floor plate and ceiling</li>
+<li>Attach the hanger</li>
+<li>Attach the wire mesh</li>
+</ul><div>
+<img style="width:100%;" src="static/samples/FatBallDispenser.jpg" onerror="this.parentElement.innerHTML = 'There is no image yet. Please donate an image of your project on <a href=&quot;https://github.com/florianfesti/boxes/issues/628&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>GitHub</a>!';" alt="Picture of box.">
+</div>
+</div>
+</div>
+<div id="preview">
+  <div id="preview_buttons">
+    Zoom: 
+    <button type="button" onclick="preview_scale/=1.2; document.getElementById('preview_img').style.width = preview_scale + '%';">-</button>
+    <button type="button" onclick="preview_scale*= 1.2; document.getElementById('preview_img').style.width = preview_scale + '%';" >+</button>
+    <button type="button" onclick="preview_scale=100; document.getElementById('preview_img').style.width = preview_scale + '%';" >Reset</button>
+  </div>
+<div style="overflow: auto;">
+<figure id="preview_figure" style="width: max-content;">
+<img id="preview_img" style="width:100%" src="static/nothing.png">
+</figure>
+</div>
+</div>
+</body>
+</html>
+        

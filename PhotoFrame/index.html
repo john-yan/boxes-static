@@ -1,0 +1,181 @@
+<!DOCTYPE html><html>
+<head>
+    <base href="../">
+    <title>PhotoFrame - Boxes</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="static/boxes-logo.svg" sizes="any">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+
+    <link rel="stylesheet" href="static/self.css">
+    <script src="static/self.js"></script>
+    <script src="shim/boxes-browser.js"></script>
+</head>
+<body onload="initArgsPage(2)">
+
+<div class="argumentcontainer">
+<div style="float: left;">
+<a href="./"><h1>Boxes.py</h1></a>
+</div>
+<div style="width: 120px; float: right;">
+<img alt="self-Logo" src="static/boxes-logo.svg" width="120">
+</div>
+<div>
+<div class="clear"></div>
+<hr>
+<div class="linkbar">
+<ul>
+  <li><a href="https://florianfesti.github.io/boxes/html/usermanual.html" target="_blank" rel="noopener">Help</a></li>
+  <li><a href="https://hackaday.io/project/10649-boxespy" target="_blank" rel="noopener">Home Page</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/index.html" target="_blank" rel="noopener">Documentation</a></li>
+  <li><a href="https://github.com/florianfesti/boxes" target="_blank" rel="noopener">Sources</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/give_back.html" target="_blank" rel="noopener">Give Back</a></li>
+    <li class="right">Preview <input id="preview_chk" type="checkbox" checked="checked"> </li>
+  <li class="right"><!-- No other languages to select found. -->  </li>
+
+</ul>
+</div>
+<hr>
+
+<h2 style="margin: 0px 0px 0px 20px;">PhotoFrame</h2>
+        <p>
+3-layer photo frame with a slot at the top to slide matboard/acrylic/glass over the photo after glue-up.
+</p>
+<form id="arguments" action="./PhotoFrame" method="GET" rel="nofollow">
+        <h3 id="h-0" data-id="0" role="button" aria-expanded="true" tabindex="0" class="toggle open">Settings for Mounting Edge</h3>
+<table role="presentation" id="0">
+<tr><td id="Mounting_d_head_id"><label for="Mounting_d_head">d_head</label></td><td><input name="Mounting_d_head" id="Mounting_d_head" aria-labeledby="Mounting_d_head_id Mounting_d_head_description" type="text" value="8.0"></td><td id="Mounting_d_head_description"><p>head diameter of mounting screw (in mm)</p></td></tr>
+<tr><td id="Mounting_d_shaft_id"><label for="Mounting_d_shaft">d_shaft</label></td><td><input name="Mounting_d_shaft" id="Mounting_d_shaft" aria-labeledby="Mounting_d_shaft_id Mounting_d_shaft_description" type="text" value="4.0"></td><td id="Mounting_d_shaft_description"><p>shaft diameter of mounting screw (in mm)</p></td></tr>
+<tr><td id="Mounting_margin_id"><label for="Mounting_margin">margin</label></td><td><input name="Mounting_margin" id="Mounting_margin" aria-labeledby="Mounting_margin_id Mounting_margin_description" type="text" value="0.125"></td><td id="Mounting_margin_description"><p>minimum space left and right without holes (fraction of the edge length)</p></td></tr>
+<tr><td id="Mounting_num_id"><label for="Mounting_num">num</label></td><td><input name="Mounting_num" id="Mounting_num" aria-labeledby="Mounting_num_id Mounting_num_description" type="text" value="3"></td><td id="Mounting_num_description"><p>number of mounting holes (integer)</p></td></tr>
+<tr><td id="Mounting_side_id"><label for="Mounting_side">side</label></td><td><select name="Mounting_side" id="Mounting_side" aria-labeledby="Mounting_side_id Mounting_side_description" size="1">
+    <option value="back" selected="selected">back</option>
+    <option value="left">left</option>
+    <option value="right">right</option>
+    <option value="front">front</option></select>
+</td><td id="Mounting_side_description"><p>side of box (not all valid configurations make sense...)</p></td></tr>
+<tr><td id="Mounting_style_id"><label for="Mounting_style">style</label></td><td><select name="Mounting_style" id="Mounting_style" aria-labeledby="Mounting_style_id Mounting_style_description" size="1">
+    <option value="straight edge, within" selected="selected">straight edge, within</option>
+    <option value="straight edge, extended">straight edge, extended</option>
+    <option value="mounting tab">mounting tab</option></select>
+</td><td id="Mounting_style_description"><p>edge style</p></td></tr>
+</table><h3 id="h-1" data-id="1" role="button" aria-expanded="true" tabindex="0" class="toggle open">Settings for Dove Tail Joints</h3>
+<table role="presentation" id="1">
+<tr><td id="DoveTail_angle_id"><label for="DoveTail_angle">angle</label></td><td><input name="DoveTail_angle" id="DoveTail_angle" aria-labeledby="DoveTail_angle_id DoveTail_angle_description" type="text" value="50"></td><td id="DoveTail_angle_description"><p>how much should fingers widen (-80 to 80)</p></td></tr>
+<tr><td id="DoveTail_depth_id"><label for="DoveTail_depth">depth</label></td><td><input name="DoveTail_depth" id="DoveTail_depth" aria-labeledby="DoveTail_depth_id DoveTail_depth_description" type="text" value="1.0"></td><td id="DoveTail_depth_description"><p>how far the dove tails stick out of/into the edge (multiples of thickness)</p></td></tr>
+<tr><td id="DoveTail_radius_id"><label for="DoveTail_radius">radius</label></td><td><input name="DoveTail_radius" id="DoveTail_radius" aria-labeledby="DoveTail_radius_id DoveTail_radius_description" type="text" value="0.2"></td><td id="DoveTail_radius_description"><p>radius used on all four corners (multiples of thickness)</p></td></tr>
+<tr><td id="DoveTail_size_id"><label for="DoveTail_size">size</label></td><td><input name="DoveTail_size" id="DoveTail_size" aria-labeledby="DoveTail_size_id DoveTail_size_description" type="text" value="2"></td><td id="DoveTail_size_description"><p>from one middle of a dove tail to another (multiples of thickness)</p></td></tr>
+</table><h3 id="h-2" data-id="2" role="button" aria-expanded="true" tabindex="0" class="toggle open">PhotoFrame Settings</h3>
+<table role="presentation" id="2">
+<tr><td id="x_id"><label for="x">x</label></td><td><input name="x" id="x" aria-labeledby="x_id x_description" type="text" value="100"></td><td id="x_description"><p>Width of the photo, not including any border</p></td></tr>
+<tr><td id="y_id"><label for="y">y</label></td><td><input name="y" id="y" aria-labeledby="y_id y_description" type="text" value="150"></td><td id="y_description"><p>Height of the photo, not including any border</p></td></tr>
+<tr><td id="golden_mat_id"><label for="golden_mat">golden_mat</label></td><td><input name="golden_mat" type="hidden" value="0">
+<input name="golden_mat" id="golden_mat" aria-labeledby="golden_mat_id golden_mat_description" type="checkbox" value="1" checked="checked"></td><td id="golden_mat_description"><p>Use golden ratio to calculate matting width</p></td></tr>
+<tr><td id="matting_w_id"><label for="matting_w">matting_w</label></td><td><input name="matting_w" id="matting_w" aria-labeledby="matting_w_id matting_w_description" type="text" value="0"></td><td id="matting_w_description"><p>Width of the matting border around the sides of the photo</p></td></tr>
+<tr><td id="matting_h_id"><label for="matting_h">matting_h</label></td><td><input name="matting_h" id="matting_h" aria-labeledby="matting_h_id matting_h_description" type="text" value="0"></td><td id="matting_h_description"><p>Width of the matting border around top/bottom of the photo</p></td></tr>
+<tr><td id="matting_overlap_id"><label for="matting_overlap">matting_overlap</label></td><td><input name="matting_overlap" id="matting_overlap" aria-labeledby="matting_overlap_id matting_overlap_description" type="text" value="2"></td><td id="matting_overlap_description"><p>Matting overlap of the photo, e.g. 2mm if photo has border, 5mm if not</p></td></tr>
+<tr><td id="glass_w_id"><label for="glass_w">glass_w</label></td><td><input name="glass_w" id="glass_w" aria-labeledby="glass_w_id glass_w_description" type="text" value="0"></td><td id="glass_w_description"><p>Width of the pre-cut glass or acrylic</p></td></tr>
+<tr><td id="glass_h_id"><label for="glass_h">glass_h</label></td><td><input name="glass_h" id="glass_h" aria-labeledby="glass_h_id glass_h_description" type="text" value="0"></td><td id="glass_h_description"><p>Height of the pre-cut glass or acrylic</p></td></tr>
+<tr><td id="frame_w_id"><label for="frame_w">frame_w</label></td><td><input name="frame_w" id="frame_w" aria-labeledby="frame_w_id frame_w_description" type="text" value="20.0"></td><td id="frame_w_description"><p>Width of the frame border around the matting</p></td></tr>
+<tr><td id="guide_fudge_id"><label for="guide_fudge">guide_fudge</label></td><td><input name="guide_fudge" id="guide_fudge" aria-labeledby="guide_fudge_id guide_fudge_description" type="text" value="2.0"></td><td id="guide_fudge_description"><p>Clearance in the guide pocket to help slide the matting/glass in</p></td></tr>
+<tr><td id="frame_overlap_id"><label for="frame_overlap">frame_overlap</label></td><td><input name="frame_overlap" id="frame_overlap" aria-labeledby="frame_overlap_id frame_overlap_description" type="text" value="5.0"></td><td id="frame_overlap_description"><p>Frame overlap to hold the matting/glass in place</p></td></tr>
+<tr><td id="split_front_id"><label for="split_front">split_front</label></td><td><input name="split_front" type="hidden" value="0">
+<input name="split_front" id="split_front" aria-labeledby="split_front_id split_front_description" type="checkbox" value="1" checked="checked"></td><td id="split_front_description"><p>Split front into thin rectangles to save material</p></td></tr>
+</table><h3 id="h-3" data-id="3" role="button" aria-expanded="true" tabindex="0" class="toggle open">Default Settings</h3>
+<table role="presentation" id="3">
+<tr><td id="thickness_id"><label for="thickness">thickness</label></td><td><input name="thickness" id="thickness" aria-labeledby="thickness_id thickness_description" type="text" value="3.0"></td><td id="thickness_description"><p>thickness of the material (in mm) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#thickness">🛈</a></p></td></tr>
+<tr><td id="burn_id"><label for="burn">burn</label></td><td><input name="burn" id="burn" aria-labeledby="burn_id burn_description" type="text" value="0.1"></td><td id="burn_description"><p>burn correction (in mm)(bigger values for tighter fit) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#burn">🛈</a></p></td></tr>
+<tr><td id="format_id"><label for="format">format</label></td><td><select name="format" id="format" aria-labeledby="format_id format_description" size="1">
+    <option value="svg" selected="selected">svg</option>
+    <option value="svg_Ponoko">svg_Ponoko</option>
+    <option value="ps">ps</option>
+    <option value="lbrn2">lbrn2</option></select>
+</td><td id="format_description"><p>format of resulting file <a href="https://florianfesti.github.io/boxes/html/usermanual.html#format">🛈</a></p></td></tr>
+<tr><td id="labels_id"><label for="labels">labels</label></td><td><input name="labels" type="hidden" value="0">
+<input name="labels" id="labels" aria-labeledby="labels_id labels_description" type="checkbox" value="1" checked="checked"></td><td id="labels_description"><p>label the parts (where available)</p></td></tr>
+<tr><td id="reference_id"><label for="reference">reference</label></td><td><input name="reference" id="reference" aria-labeledby="reference_id reference_description" type="text" value="100.0"></td><td id="reference_description"><p>print reference rectangle with given length (in mm)(zero to disable) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#reference">🛈</a></p></td></tr>
+<tr><td id="tabs_id"><label for="tabs">tabs</label></td><td><input name="tabs" id="tabs" aria-labeledby="tabs_id tabs_description" type="text" value="0.0"></td><td id="tabs_description"><p>width of tabs holding the parts in place (in mm)(not supported everywhere) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#tabs">🛈</a></p></td></tr>
+<tr><td id="qr_code_id"><label for="qr_code">qr_code</label></td><td><input name="qr_code" type="hidden" value="0">
+<input name="qr_code" id="qr_code" aria-labeledby="qr_code_id qr_code_description" type="checkbox" value="1"></td><td id="qr_code_description"><p>Add a QR Code with link or command line to the generated output</p></td></tr>
+<tr><td id="inner_corners_id"><label for="inner_corners">inner_corners</label></td><td><select name="inner_corners" id="inner_corners" aria-labeledby="inner_corners_id inner_corners_description" size="1">
+    <option value="loop" selected="selected">loop</option>
+    <option value="corner">corner</option>
+    <option value="backarc">backarc</option></select>
+</td><td id="inner_corners_description"><p>style for inner corners <a href="https://florianfesti.github.io/boxes/html/usermanual.html#inner-corners">🛈</a></p></td></tr>
+<tr><td id="spacing_id"><label for="spacing">spacing</label></td><td><input name="spacing" id="spacing" aria-labeledby="spacing_id spacing_description" type="text" value="0.5"></td><td id="spacing_description"><p>spacing around parts (multiples of thickness [: extra space in mm]) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#spacing">🛈</a></p></td></tr>
+<tr><td id="debug_id"><label for="debug">debug</label></td><td><input name="debug" type="hidden" value="0">
+<input name="debug" id="debug" aria-labeledby="debug_id debug_description" type="checkbox" value="1"></td><td id="debug_description"><p>print surrounding boxes for some structures <a href="https://florianfesti.github.io/boxes/html/usermanual.html#debug">🛈</a></p></td></tr>
+</table>
+<input type="hidden" name="language" id="language" value="None">
+
+<p>
+    <button name="render" value="1" formtarget="_blank">Generate</button>
+    <button name="render" value="2" formtarget="_self">Download</button>
+    <button name="render" value="0" formtarget="_self">Save to URL</button>
+    <button name="render" value="3" formtarget="_blank">QR Code</button>
+</p>
+</form>
+</div>
+
+<div class="clear"></div>
+<hr>
+<div class="description">
+<p>3-layer photo frame.</p>
+<p>Selected excellent features:</p>
+<ul>
+<li>easy to change the photo after glue-up, without disassembling the frame</li>
+<li>calculates the ideal matting size for your photo based on ancient Greek mathematics</li>
+<li>can make the frame in one piece or split into 4 pieces to save material</li>
+<li>can make a frame to fit the piece of glass/acrylic you already have</li>
+<li>adds a hole for hanging the frame on the wall</li>
+</ul>
+<p>Features available in the mysterious future:</p>
+<ul>
+<li>rounded corners</li>
+<li>a stand on the back to display the frame on a table</li>
+</ul>
+<h2>How to frame things like a pro</h2>
+<p>There are 1 or 2 things that you can't change when framing: the size of the artwork
+and the size of the glass. So we generate everything else to fit those measurements.</p>
+<p>Set <code>x</code> and <code>y</code> to the dimensions of the actual artwork.</p>
+<ul>
+<li>If your photo has a border, measure inside it.</li>
+<li>If your photo does not have a border, still measure the actual artwork. Don't reduce the dimensions to allow for mounting. We do that separately.</li>
+</ul>
+<p>A real pro measures the photo, calculates the matting, and cuts the glass to fit the matting.
+We will assume that you are not in fact a real pro, and can't be trusted with a glass cutter.
+So measure your glass and we'll calculate the matting to suit it. If you aren't using glass,
+we'll calculate the matting size based on "golden ratio of areas" like the pros do. Everyone
+will think your frame is perfect, but they won't know why.</p>
+<p>Matting is just cardboard. Its jobs are to keep the glass off the photo, provide a clean border around the artwork,
+and make the whole thing look fancy. You can attach the photo to the matting or to the back of the frame.
+Either way, the matting conceals all sorts of sins like bad cuts, glue marks, or mounting with blue painter's tape.
+Matting also lets you reuse the frame for different sized photos. Just generate a new mat with the same glass dimensions.</p>
+<p>The hole in the matting is smaller than the photo. This is so the photo doesn't fall out.
+Even if your photo has a border, the hole needs to be a bit smaller than the photo,
+or you will struggle to line up the photo without the edges showing.
+Recommended overlaps are given in the settings. Don't worry about "losing" too much of the photo.
+The matting will make the photo look bigger and more important. There's never anything
+interesting in the last 2mm of a photo anyway.</p><div>
+<img style="width:100%;" src="static/samples/PhotoFrame.jpg" onerror="this.parentElement.innerHTML = 'There is no image yet. Please donate an image of your project on <a href=&quot;https://github.com/florianfesti/boxes/issues/628&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>GitHub</a>!';" alt="Picture of box.">
+</div>
+</div>
+</div>
+<div id="preview">
+  <div id="preview_buttons">
+    Zoom: 
+    <button type="button" onclick="preview_scale/=1.2; document.getElementById('preview_img').style.width = preview_scale + '%';">-</button>
+    <button type="button" onclick="preview_scale*= 1.2; document.getElementById('preview_img').style.width = preview_scale + '%';" >+</button>
+    <button type="button" onclick="preview_scale=100; document.getElementById('preview_img').style.width = preview_scale + '%';" >Reset</button>
+  </div>
+<div style="overflow: auto;">
+<figure id="preview_figure" style="width: max-content;">
+<img id="preview_img" style="width:100%" src="static/nothing.png">
+</figure>
+</div>
+</div>
+</body>
+</html>
+        

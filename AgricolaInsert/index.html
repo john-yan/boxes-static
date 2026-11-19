@@ -1,0 +1,191 @@
+<!DOCTYPE html><html>
+<head>
+    <base href="../">
+    <title>AgricolaInsert - Boxes</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="static/boxes-logo.svg" sizes="any">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+
+    <link rel="stylesheet" href="static/self.css">
+    <script src="static/self.js"></script>
+    <script src="shim/boxes-browser.js"></script>
+</head>
+<body onload="initArgsPage(1)">
+
+<div class="argumentcontainer">
+<div style="float: left;">
+<a href="./"><h1>Boxes.py</h1></a>
+</div>
+<div style="width: 120px; float: right;">
+<img alt="self-Logo" src="static/boxes-logo.svg" width="120">
+</div>
+<div>
+<div class="clear"></div>
+<hr>
+<div class="linkbar">
+<ul>
+  <li><a href="https://florianfesti.github.io/boxes/html/usermanual.html" target="_blank" rel="noopener">Help</a></li>
+  <li><a href="https://hackaday.io/project/10649-boxespy" target="_blank" rel="noopener">Home Page</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/index.html" target="_blank" rel="noopener">Documentation</a></li>
+  <li><a href="https://github.com/florianfesti/boxes" target="_blank" rel="noopener">Sources</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/give_back.html" target="_blank" rel="noopener">Give Back</a></li>
+    <li class="right">Preview <input id="preview_chk" type="checkbox" checked="checked"> </li>
+  <li class="right"><!-- No other languages to select found. -->  </li>
+
+</ul>
+</div>
+<hr>
+
+<h2 style="margin: 0px 0px 0px 20px;">AgricolaInsert</h2>
+        <p>
+Agricola Revised Edition game box insert, including some expansions.
+</p>
+<form id="arguments" action="./AgricolaInsert" method="GET" rel="nofollow">
+        <h3 id="h-0" data-id="0" role="button" aria-expanded="true" tabindex="0" class="toggle open">Settings for Finger Joints</h3>
+<table role="presentation" id="0">
+<tr><td id="FingerJoint_style_id"><label for="FingerJoint_style">style</label></td><td><select name="FingerJoint_style" id="FingerJoint_style" aria-labeledby="FingerJoint_style_id FingerJoint_style_description" size="1">
+    <option value="rectangular" selected="selected">rectangular</option>
+    <option value="springs">springs</option>
+    <option value="barbs">barbs</option>
+    <option value="snap">snap</option></select>
+</td><td id="FingerJoint_style_description"><p>style of the fingers</p></td></tr>
+<tr><td id="FingerJoint_surroundingspaces_id"><label for="FingerJoint_surroundingspaces">surroundingspaces</label></td><td><input name="FingerJoint_surroundingspaces" id="FingerJoint_surroundingspaces" aria-labeledby="FingerJoint_surroundingspaces_id FingerJoint_surroundingspaces_description" type="text" value="1.0"></td><td id="FingerJoint_surroundingspaces_description"><p>space at the start and end in multiple of normal spaces</p></td></tr>
+<tr><td id="FingerJoint_bottom_lip_id"><label for="FingerJoint_bottom_lip">bottom_lip</label></td><td><input name="FingerJoint_bottom_lip" id="FingerJoint_bottom_lip" aria-labeledby="FingerJoint_bottom_lip_id FingerJoint_bottom_lip_description" type="text" value="0.0"></td><td id="FingerJoint_bottom_lip_description"><p>height of the bottom lips sticking out  (multiples of thickness) FingerHoleEdge only!</p></td></tr>
+<tr><td id="FingerJoint_edge_width_id"><label for="FingerJoint_edge_width">edge_width</label></td><td><input name="FingerJoint_edge_width" id="FingerJoint_edge_width" aria-labeledby="FingerJoint_edge_width_id FingerJoint_edge_width_description" type="text" value="1.0"></td><td id="FingerJoint_edge_width_description"><p>space below holes of FingerHoleEdge (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_extra_length_id"><label for="FingerJoint_extra_length">extra_length</label></td><td><input name="FingerJoint_extra_length" id="FingerJoint_extra_length" aria-labeledby="FingerJoint_extra_length_id FingerJoint_extra_length_description" type="text" value="0.0"></td><td id="FingerJoint_extra_length_description"><p>extra material to grind away burn marks (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_finger_id"><label for="FingerJoint_finger">finger</label></td><td><input name="FingerJoint_finger" id="FingerJoint_finger" aria-labeledby="FingerJoint_finger_id FingerJoint_finger_description" type="text" value="2.0"></td><td id="FingerJoint_finger_description"><p>width of the fingers (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_play_id"><label for="FingerJoint_play">play</label></td><td><input name="FingerJoint_play" id="FingerJoint_play" aria-labeledby="FingerJoint_play_id FingerJoint_play_description" type="text" value="0.0"></td><td id="FingerJoint_play_description"><p>extra space to allow finger move in and out (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_space_id"><label for="FingerJoint_space">space</label></td><td><input name="FingerJoint_space" id="FingerJoint_space" aria-labeledby="FingerJoint_space_id FingerJoint_space_description" type="text" value="2.0"></td><td id="FingerJoint_space_description"><p>space between fingers (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_width_id"><label for="FingerJoint_width">width</label></td><td><input name="FingerJoint_width" id="FingerJoint_width" aria-labeledby="FingerJoint_width_id FingerJoint_width_description" type="text" value="1.0"></td><td id="FingerJoint_width_description"><p>width of finger holes (multiples of thickness)</p></td></tr>
+</table><h3 id="h-1" data-id="1" role="button" aria-expanded="true" tabindex="0" class="toggle open">Default Settings</h3>
+<table role="presentation" id="1">
+<tr><td id="thickness_id"><label for="thickness">thickness</label></td><td><input name="thickness" id="thickness" aria-labeledby="thickness_id thickness_description" type="text" value="3.0"></td><td id="thickness_description"><p>thickness of the material (in mm) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#thickness">🛈</a></p></td></tr>
+<tr><td id="burn_id"><label for="burn">burn</label></td><td><input name="burn" id="burn" aria-labeledby="burn_id burn_description" type="text" value="0.1"></td><td id="burn_description"><p>burn correction (in mm)(bigger values for tighter fit) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#burn">🛈</a></p></td></tr>
+<tr><td id="format_id"><label for="format">format</label></td><td><select name="format" id="format" aria-labeledby="format_id format_description" size="1">
+    <option value="svg" selected="selected">svg</option>
+    <option value="svg_Ponoko">svg_Ponoko</option>
+    <option value="ps">ps</option>
+    <option value="lbrn2">lbrn2</option></select>
+</td><td id="format_description"><p>format of resulting file <a href="https://florianfesti.github.io/boxes/html/usermanual.html#format">🛈</a></p></td></tr>
+<tr><td id="labels_id"><label for="labels">labels</label></td><td><input name="labels" type="hidden" value="0">
+<input name="labels" id="labels" aria-labeledby="labels_id labels_description" type="checkbox" value="1" checked="checked"></td><td id="labels_description"><p>label the parts (where available)</p></td></tr>
+<tr><td id="reference_id"><label for="reference">reference</label></td><td><input name="reference" id="reference" aria-labeledby="reference_id reference_description" type="text" value="100.0"></td><td id="reference_description"><p>print reference rectangle with given length (in mm)(zero to disable) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#reference">🛈</a></p></td></tr>
+<tr><td id="tabs_id"><label for="tabs">tabs</label></td><td><input name="tabs" id="tabs" aria-labeledby="tabs_id tabs_description" type="text" value="0.0"></td><td id="tabs_description"><p>width of tabs holding the parts in place (in mm)(not supported everywhere) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#tabs">🛈</a></p></td></tr>
+<tr><td id="qr_code_id"><label for="qr_code">qr_code</label></td><td><input name="qr_code" type="hidden" value="0">
+<input name="qr_code" id="qr_code" aria-labeledby="qr_code_id qr_code_description" type="checkbox" value="1"></td><td id="qr_code_description"><p>Add a QR Code with link or command line to the generated output</p></td></tr>
+<tr><td id="inner_corners_id"><label for="inner_corners">inner_corners</label></td><td><select name="inner_corners" id="inner_corners" aria-labeledby="inner_corners_id inner_corners_description" size="1">
+    <option value="loop" selected="selected">loop</option>
+    <option value="corner">corner</option>
+    <option value="backarc">backarc</option></select>
+</td><td id="inner_corners_description"><p>style for inner corners <a href="https://florianfesti.github.io/boxes/html/usermanual.html#inner-corners">🛈</a></p></td></tr>
+<tr><td id="spacing_id"><label for="spacing">spacing</label></td><td><input name="spacing" id="spacing" aria-labeledby="spacing_id spacing_description" type="text" value="0.5"></td><td id="spacing_description"><p>spacing around parts (multiples of thickness [: extra space in mm]) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#spacing">🛈</a></p></td></tr>
+<tr><td id="debug_id"><label for="debug">debug</label></td><td><input name="debug" type="hidden" value="0">
+<input name="debug" id="debug" aria-labeledby="debug_id debug_description" type="checkbox" value="1"></td><td id="debug_description"><p>print surrounding boxes for some structures <a href="https://florianfesti.github.io/boxes/html/usermanual.html#debug">🛈</a></p></td></tr>
+</table>
+<input type="hidden" name="language" id="language" value="None">
+
+<p>
+    <button name="render" value="1" formtarget="_blank">Generate</button>
+    <button name="render" value="2" formtarget="_self">Download</button>
+    <button name="render" value="0" formtarget="_self">Save to URL</button>
+    <button name="render" value="3" formtarget="_blank">QR Code</button>
+</p>
+</form>
+</div>
+
+<div class="clear"></div>
+<hr>
+<div class="description">
+<p>This insert was designed with 3 mm plywood in mind, and should work fine with
+materials around this thickness.</p>
+<p>This is an insert for the <a href="https://boardgamegeek.com/boardgame/200680/agricola-revised-edition">Agricola Revised Edition</a>
+board game. It is specifically designed around the <a href="https://boardgamegeek.com/boardgameexpansion/257344/agricola-farmers-moor">Farmers Of The Moor expansion</a>,
+and should also store the <a href="https://boardgamegeek.com/boardgameexpansion/210625/agricola-expansion-5-and-6-players">5-6 players expansion</a>
+(not tested, but I tried to take everything into account for it, please inform
+us if you tested it).</p>
+<p>It can be stored inside the original game box, including the 2 expansions,
+with the lid slightly raised.</p>
+<p>The parts of a given element are mostly generated next to each other vertically.
+It should be straightforward to match them.</p>
+<p>Here are the different elements, from left to right in the generated file.</p>
+<h4>Card tray</h4>
+<p>The cards are all kept in a tray, with paper dividers to sort them easily. When
+the tray is not full of cards, wood dividers slides in slots in order to keep
+the cards from falling into the empty space.</p>
+<p>There should be enough space for the main game, Farmers Of The Moor, and the 5-6
+player expansion, but not much more than that.</p>
+<p>To keep a lower profile, the cards are at a slight angle, and the paper dividers
+tabs are horizontal instead of vertical.
+A small wall keeps the card against one side while the tabs protrude on the
+other side, above the small wall.</p>
+<p>The wall with the big hole is the sloped one. It goes between the two
+"comb-like" walls first, with its two small holes at the bottom. Then there is a
+low-height long wall with a sloped edge which should go from the sloped wall to
+the other side. You can finish the tray with the last wall at the end.</p>
+<h4>Upper level trays</h4>
+<p>4 trays with movable walls are used to store resources. They were designed to
+store them in this order:</p>
+<ul>
+<li>Stone / Vegetable / Pig / Cow</li>
+<li>Reed / Grain / Sheep</li>
+<li>Wood / Clay</li>
+<li>Food / Fire</li>
+</ul>
+<p>The wall would probably be better if fixed instead of movable, but I would like
+to test with the 5-6 player expansion to be sure their positions are correct
+with it too.</p>
+<p>The little feet of the movable wall should be glued. The triangles are put
+horizontally, with their bases towards the sides.</p>
+<h4>Lower level tray</h4>
+<p>The lower level tray is used to store the horses.</p>
+<h4>Room/Field tiles</h4>
+<p>Two boxes are generated to store the room/field tiles. One for the wood/field,
+the other for the clay/stone. They are stored with the main opening upside, but
+I prefer to use them during play with this face on the side.</p>
+<h4>Moor/Forest and miscellaneous tiles</h4>
+<p>A box is generated to store the Moor/Forest tiles, and some other tiles such as
+the "multiple resources" cardboard tokens.</p>
+<p>The Moor/Forest tiles are at the same height as the Room/Field, and the upper
+level trays are directly on them. The horse box and player box are slightly
+lower. This Moor/Forest box have a lowered corner (the one for the miscellaneous
+tiles). Two cardboard pieces can be stored between the smaller boxes and the
+upper level trays (as seen on the picture).</p>
+<p>Be sure to match the pieces so that the walls with smaller heights are next to
+each other.</p>
+<h4>Players bit boxes</h4>
+<p>Each player has its own box where the bits of his color are stored.
+The cardboard bed from Farmers Of The Moor is central to this box.</p>
+<ul>
+<li>The fences are stored inside the bed</li>
+<li>The bed is placed in the box, with holes to keep it there (and to take less
+  height)</li>
+<li>The stables are stored in the two corners</li>
+<li>The five farmers are stored between the bed and the three walls, alternatively
+  head up and head down.</li>
+</ul>
+<p>During assembly, the small bars are put in the middle holes. The two bigger
+holes at the ends are used for the bed feet. The bar keeps the bed from
+protruding underneath.</p><div>
+<img style="width:100%;" src="static/samples/AgricolaInsert.jpg" onerror="this.parentElement.innerHTML = 'There is no image yet. Please donate an image of your project on <a href=&quot;https://github.com/florianfesti/boxes/issues/628&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>GitHub</a>!';" alt="Picture of box.">
+</div>
+</div>
+</div>
+<div id="preview">
+  <div id="preview_buttons">
+    Zoom: 
+    <button type="button" onclick="preview_scale/=1.2; document.getElementById('preview_img').style.width = preview_scale + '%';">-</button>
+    <button type="button" onclick="preview_scale*= 1.2; document.getElementById('preview_img').style.width = preview_scale + '%';" >+</button>
+    <button type="button" onclick="preview_scale=100; document.getElementById('preview_img').style.width = preview_scale + '%';" >Reset</button>
+  </div>
+<div style="overflow: auto;">
+<figure id="preview_figure" style="width: max-content;">
+<img id="preview_img" style="width:100%" src="static/nothing.png">
+</figure>
+</div>
+</div>
+</body>
+</html>
+        

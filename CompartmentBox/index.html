@@ -1,0 +1,143 @@
+<!DOCTYPE html><html>
+<head>
+    <base href="../">
+    <title>CompartmentBox - Boxes</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="static/boxes-logo.svg" sizes="any">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+
+    <link rel="stylesheet" href="static/self.css">
+    <script src="static/self.js"></script>
+    <script src="shim/boxes-browser.js"></script>
+</head>
+<body onload="initArgsPage(1)">
+
+<div class="argumentcontainer">
+<div style="float: left;">
+<a href="./"><h1>Boxes.py</h1></a>
+</div>
+<div style="width: 120px; float: right;">
+<img alt="self-Logo" src="static/boxes-logo.svg" width="120">
+</div>
+<div>
+<div class="clear"></div>
+<hr>
+<div class="linkbar">
+<ul>
+  <li><a href="https://florianfesti.github.io/boxes/html/usermanual.html" target="_blank" rel="noopener">Help</a></li>
+  <li><a href="https://hackaday.io/project/10649-boxespy" target="_blank" rel="noopener">Home Page</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/index.html" target="_blank" rel="noopener">Documentation</a></li>
+  <li><a href="https://github.com/florianfesti/boxes" target="_blank" rel="noopener">Sources</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/give_back.html" target="_blank" rel="noopener">Give Back</a></li>
+    <li class="right">Preview <input id="preview_chk" type="checkbox" checked="checked"> </li>
+  <li class="right"><!-- No other languages to select found. -->  </li>
+
+</ul>
+</div>
+<hr>
+
+<h2 style="margin: 0px 0px 0px 20px;">CompartmentBox</h2>
+        <p>Type tray variation with sliding lid</p>
+<form id="arguments" action="./CompartmentBox" method="GET" rel="nofollow">
+        <h3 id="h-0" data-id="0" role="button" aria-expanded="true" tabindex="0" class="toggle open">Settings for Stackable Edges</h3>
+<table role="presentation" id="0">
+<tr><td id="Stackable_angle_id"><label for="Stackable_angle">angle</label></td><td><input name="Stackable_angle" id="Stackable_angle" aria-labeledby="Stackable_angle_id Stackable_angle_description" type="text" value="60"></td><td id="Stackable_angle_description"><p>inside angle of the feet</p></td></tr>
+<tr><td id="Stackable_bottom_stabilizers_id"><label for="Stackable_bottom_stabilizers">bottom_stabilizers</label></td><td><input name="Stackable_bottom_stabilizers" id="Stackable_bottom_stabilizers" aria-labeledby="Stackable_bottom_stabilizers_id Stackable_bottom_stabilizers_description" type="text" value="0.0"></td><td id="Stackable_bottom_stabilizers_description"><p>height of strips to be glued to the inside of bottom edges (multiples of thickness)</p></td></tr>
+<tr><td id="Stackable_height_id"><label for="Stackable_height">height</label></td><td><input name="Stackable_height" id="Stackable_height" aria-labeledby="Stackable_height_id Stackable_height_description" type="text" value="2.0"></td><td id="Stackable_height_description"><p>height of the feet (multiples of thickness)</p></td></tr>
+<tr><td id="Stackable_holedistance_id"><label for="Stackable_holedistance">holedistance</label></td><td><input name="Stackable_holedistance" id="Stackable_holedistance" aria-labeledby="Stackable_holedistance_id Stackable_holedistance_description" type="text" value="1.0"></td><td id="Stackable_holedistance_description"><p>distance from finger holes to bottom edge (multiples of thickness)</p></td></tr>
+<tr><td id="Stackable_width_id"><label for="Stackable_width">width</label></td><td><input name="Stackable_width" id="Stackable_width" aria-labeledby="Stackable_width_id Stackable_width_description" type="text" value="4.0"></td><td id="Stackable_width_description"><p>width of the feet (multiples of thickness)</p></td></tr>
+</table><h3 id="h-1" data-id="1" role="button" aria-expanded="true" tabindex="0" class="toggle open">CompartmentBox Settings</h3>
+<table role="presentation" id="1">
+<tr><td id="sx_id"><label for="sx">sx</label></td><td><input name="sx" id="sx" aria-labeledby="sx_id sx_description" type="text" value="50*3"></td><td id="sx_description"><p>sections left to right in mm <a href="https://florianfesti.github.io/boxes/html/usermanual.html#section-parameters">🛈</a></p></td></tr>
+<tr><td id="sy_id"><label for="sy">sy</label></td><td><input name="sy" id="sy" aria-labeledby="sy_id sy_description" type="text" value="50*3"></td><td id="sy_description"><p>sections back to front in mm <a href="https://florianfesti.github.io/boxes/html/usermanual.html#section-parameters">🛈</a></p></td></tr>
+<tr><td id="h_id"><label for="h">h</label></td><td><input name="h" id="h" aria-labeledby="h_id h_description" type="text" value="100.0"></td><td id="h_description"><p>inner height in mm (unless outside selected)</p></td></tr>
+<tr><td id="outside_id"><label for="outside">outside</label></td><td><input name="outside" type="hidden" value="0">
+<input name="outside" id="outside" aria-labeledby="outside_id outside_description" type="checkbox" value="1" checked="checked"></td><td id="outside_description"><p>treat sizes as outside measurements <a href="https://florianfesti.github.io/boxes/html/usermanual.html#outside">🛈</a></p></td></tr>
+<tr><td id="bottom_edge_id"><label for="bottom_edge">bottom_edge</label></td><td><select name="bottom_edge" id="bottom_edge" aria-labeledby="bottom_edge_id bottom_edge_description" size="1">
+<option value="F">F Finger Joint (opposing side)</option>
+<option value="h" selected="selected">h Edge (parallel Finger Joint Holes)</option>
+<option value="s">s Stackable (bottom, finger joint holes)</option>
+<option value="e">e Straight Edge</option></select>
+</td><td id="bottom_edge_description"><p>edge type for bottom edge</p></td></tr>
+<tr><td id="handle_id"><label for="handle">handle</label></td><td><select name="handle" id="handle" aria-labeledby="handle_id handle_description" size="1">
+    <option value="lip" selected="selected">lip</option>
+    <option value="none">none</option>
+    <option value="hole">hole</option></select>
+</td><td id="handle_description"><p>how to grab the lid to remove</p></td></tr>
+<tr><td id="radius_id"><label for="radius">radius</label></td><td><input name="radius" id="radius" aria-labeledby="radius_id radius_description" type="text" value="10"></td><td id="radius_description"><p>radius of the grip hole in mm</p></td></tr>
+<tr><td id="holes_id"><label for="holes">holes</label></td><td><input name="holes" id="holes" aria-labeledby="holes_id holes_description" type="text" value="70"></td><td id="holes_description"><p>width of hole(s) in percentage of maximum hole width</p></td></tr>
+<tr><td id="margin_t_id"><label for="margin_t">margin_t</label></td><td><input name="margin_t" id="margin_t" aria-labeledby="margin_t_id margin_t_description" type="text" value="0.1"></td><td id="margin_t_description"><p>vertical margin for sliding lid (multiples of thickness)</p></td></tr>
+<tr><td id="margin_s_id"><label for="margin_s">margin_s</label></td><td><input name="margin_s" id="margin_s" aria-labeledby="margin_s_id margin_s_description" type="text" value="0.05"></td><td id="margin_s_description"><p>margin to add at both sides of sliding lid (multiples of thickness)</p></td></tr>
+<tr><td id="split_lip_id"><label for="split_lip">split_lip</label></td><td><input name="split_lip" type="hidden" value="0">
+<input name="split_lip" id="split_lip" aria-labeledby="split_lip_id split_lip_description" type="checkbox" value="1" checked="checked"></td><td id="split_lip_description"><p>create two strips to reduce waste material</p></td></tr>
+</table><h3 id="h-2" data-id="2" role="button" aria-expanded="true" tabindex="0" class="toggle open">Default Settings</h3>
+<table role="presentation" id="2">
+<tr><td id="thickness_id"><label for="thickness">thickness</label></td><td><input name="thickness" id="thickness" aria-labeledby="thickness_id thickness_description" type="text" value="3.0"></td><td id="thickness_description"><p>thickness of the material (in mm) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#thickness">🛈</a></p></td></tr>
+<tr><td id="burn_id"><label for="burn">burn</label></td><td><input name="burn" id="burn" aria-labeledby="burn_id burn_description" type="text" value="0.1"></td><td id="burn_description"><p>burn correction (in mm)(bigger values for tighter fit) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#burn">🛈</a></p></td></tr>
+<tr><td id="format_id"><label for="format">format</label></td><td><select name="format" id="format" aria-labeledby="format_id format_description" size="1">
+    <option value="svg" selected="selected">svg</option>
+    <option value="svg_Ponoko">svg_Ponoko</option>
+    <option value="ps">ps</option>
+    <option value="lbrn2">lbrn2</option></select>
+</td><td id="format_description"><p>format of resulting file <a href="https://florianfesti.github.io/boxes/html/usermanual.html#format">🛈</a></p></td></tr>
+<tr><td id="labels_id"><label for="labels">labels</label></td><td><input name="labels" type="hidden" value="0">
+<input name="labels" id="labels" aria-labeledby="labels_id labels_description" type="checkbox" value="1" checked="checked"></td><td id="labels_description"><p>label the parts (where available)</p></td></tr>
+<tr><td id="reference_id"><label for="reference">reference</label></td><td><input name="reference" id="reference" aria-labeledby="reference_id reference_description" type="text" value="100.0"></td><td id="reference_description"><p>print reference rectangle with given length (in mm)(zero to disable) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#reference">🛈</a></p></td></tr>
+<tr><td id="tabs_id"><label for="tabs">tabs</label></td><td><input name="tabs" id="tabs" aria-labeledby="tabs_id tabs_description" type="text" value="0.0"></td><td id="tabs_description"><p>width of tabs holding the parts in place (in mm)(not supported everywhere) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#tabs">🛈</a></p></td></tr>
+<tr><td id="qr_code_id"><label for="qr_code">qr_code</label></td><td><input name="qr_code" type="hidden" value="0">
+<input name="qr_code" id="qr_code" aria-labeledby="qr_code_id qr_code_description" type="checkbox" value="1"></td><td id="qr_code_description"><p>Add a QR Code with link or command line to the generated output</p></td></tr>
+<tr><td id="inner_corners_id"><label for="inner_corners">inner_corners</label></td><td><select name="inner_corners" id="inner_corners" aria-labeledby="inner_corners_id inner_corners_description" size="1">
+    <option value="loop" selected="selected">loop</option>
+    <option value="corner">corner</option>
+    <option value="backarc">backarc</option></select>
+</td><td id="inner_corners_description"><p>style for inner corners <a href="https://florianfesti.github.io/boxes/html/usermanual.html#inner-corners">🛈</a></p></td></tr>
+<tr><td id="spacing_id"><label for="spacing">spacing</label></td><td><input name="spacing" id="spacing" aria-labeledby="spacing_id spacing_description" type="text" value="0.5"></td><td id="spacing_description"><p>spacing around parts (multiples of thickness [: extra space in mm]) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#spacing">🛈</a></p></td></tr>
+<tr><td id="debug_id"><label for="debug">debug</label></td><td><input name="debug" type="hidden" value="0">
+<input name="debug" id="debug" aria-labeledby="debug_id debug_description" type="checkbox" value="1"></td><td id="debug_description"><p>print surrounding boxes for some structures <a href="https://florianfesti.github.io/boxes/html/usermanual.html#debug">🛈</a></p></td></tr>
+</table>
+<input type="hidden" name="language" id="language" value="None">
+
+<p>
+    <button name="render" value="1" formtarget="_blank">Generate</button>
+    <button name="render" value="2" formtarget="_self">Download</button>
+    <button name="render" value="0" formtarget="_self">Save to URL</button>
+    <button name="render" value="3" formtarget="_blank">QR Code</button>
+</p>
+</form>
+</div>
+
+<div class="clear"></div>
+<hr>
+<div class="description">
+<p>Sliding lid rests on inner walls,
+so will not work if no inner walls are present.
+Suggested to place walls close to both sides for maximum stability.
+Margin helps to prevent the lid from getting stuck.
+Vertical margin increases the overall height.
+The lip holding the lid in place can be generated as two separate
+pieces or as a single piece that continues at the back.</p>
+<p><img alt="Closed" src="static/samples/CompartmentBox-closed.jpg" />
+<img alt="Half open" src="static/samples/CompartmentBox-lid.jpg" /></p><div>
+<img style="width:100%;" src="static/samples/CompartmentBox.jpg" onerror="this.parentElement.innerHTML = 'There is no image yet. Please donate an image of your project on <a href=&quot;https://github.com/florianfesti/boxes/issues/628&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>GitHub</a>!';" alt="Picture of box.">
+</div>
+</div>
+</div>
+<div id="preview">
+  <div id="preview_buttons">
+    Zoom: 
+    <button type="button" onclick="preview_scale/=1.2; document.getElementById('preview_img').style.width = preview_scale + '%';">-</button>
+    <button type="button" onclick="preview_scale*= 1.2; document.getElementById('preview_img').style.width = preview_scale + '%';" >+</button>
+    <button type="button" onclick="preview_scale=100; document.getElementById('preview_img').style.width = preview_scale + '%';" >Reset</button>
+  </div>
+<div style="overflow: auto;">
+<figure id="preview_figure" style="width: max-content;">
+<img id="preview_img" style="width:100%" src="static/nothing.png">
+</figure>
+</div>
+</div>
+</body>
+</html>
+        

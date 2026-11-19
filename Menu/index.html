@@ -1,0 +1,399 @@
+<!DOCTYPE html><html>
+<head>
+    <base href="../">
+    <title>Boxes.py</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="static/boxes-logo.svg" sizes="any">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+
+    <link rel="stylesheet" href="static/self.css">
+    <script src="static/self.js"></script>
+    <script src="shim/boxes-browser.js"></script>
+</head>
+<body onload="initPage()">
+<div class="container">
+<div style="width: 75%; float: left;">
+
+<h1><a href="./">Boxes.py</a></h1>
+<p>Create boxes and more with a laser cutter!</p>
+<p>
+
+        <a href="https://hackaday.io/project/10649-boxespy">Boxes.py</a> is an <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Open Source</a> box generator written in <a href="https://www.python.org/">Python</a>. It features both finished parametrized generators as well as a Python API for writing your own. It features finger and (flat) dovetail joints, flex cuts, holes and slots for screws, hinges, gears, pulleys and much more.
+</p>
+</div>
+
+<div style="width: 25%; float: left;">
+<img alt="self-Logo" src="static/boxes-logo.svg" width="250">
+</div>
+
+<div>
+
+<div class="clear"></div>
+<hr/>
+<div class="linkbar">
+<ul>
+  <li><a href="https://florianfesti.github.io/boxes/html/usermanual.html" target="_blank" rel="noopener">Help</a></li>
+  <li><a href="https://hackaday.io/project/10649-boxespy" target="_blank" rel="noopener">Home Page</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/index.html" target="_blank" rel="noopener">Documentation</a></li>
+  <li><a href="https://github.com/florianfesti/boxes" target="_blank" rel="noopener">Sources</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/give_back.html" target="_blank" rel="noopener">Give Back</a></li>
+  <li class="right"><!-- No other languages to select found. -->  </li>
+
+  <li class="right">🔍 <input autocomplete="off" type="search" oninput="filterSearchItems();" name="search" id="search" placeholder="Search"></li>
+</ul>
+</div>
+<hr/>
+
+<div class="modenav">
+<a href="Gallery"><span class="modebutton">Gallery</span></a>
+<span class="modebutton modeactive">Menu</span>
+</div>
+<br>
+<div class="menu" style="width: 100%">
+<img style="width: 200px;" id="sample-preview" src="static/nothing.png" alt="">
+
+<h3 id="h-0"
+    data-id="0"
+    data-thumbnail="static/samples/UniversalBox-thumb.jpg"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Boxes
+</h3>
+  <div id="0">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/ABox-thumb.jpg" id="search_id_ABox"><a href="ABox">ABox</a> - A simple Box</li>
+     <li class="thumbnail" data-thumbnail="static/samples/AngledBox-thumb.jpg" id="search_id_AngledBox"><a href="AngledBox">AngledBox</a> - Box with both ends cornered</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BasedBox-thumb.jpg" id="search_id_BasedBox"><a href="BasedBox">BasedBox</a> - Fully closed box on a base</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BayonetBox-thumb.jpg" id="search_id_BayonetBox"><a href="BayonetBox">BayonetBox</a> - Round box made from layers with twist on top</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BrickSorter-thumb.jpg" id="search_id_BrickSorter"><a href="BrickSorter">BrickSorter</a> - Stackable nestable sorting sieve for bricks</li>
+     <li class="thumbnail" data-thumbnail="static/samples/CardBox-thumb.jpg" id="search_id_CardBox"><a href="CardBox">CardBox</a> - Box for storage of playing cards, with versatile options</li>
+     <li class="thumbnail" data-thumbnail="static/samples/ClosedBox-thumb.jpg" id="search_id_ClosedBox"><a href="ClosedBox">ClosedBox</a> - Fully closed box</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Coffin-thumb.jpg" id="search_id_Coffin"><a href="Coffin">Coffin</a> - Box with both ends cornered</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Console-thumb.jpg" id="search_id_Console"><a href="Console">Console</a> - Console with slanted panel</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Console2-thumb.jpg" id="search_id_Console2"><a href="Console2">Console2</a> - Console with slanted panel and service hatches</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Crate-thumb.jpg" id="search_id_Crate"><a href="Crate">Crate</a> - Crate with handles. Can be made stackable. Can produce additional mask to put patterns onto crate walls</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DiceBox-thumb.jpg" id="search_id_DiceBox"><a href="DiceBox">DiceBox</a> - Box with lid and integrated hinge for storing dice.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DisplayCase-thumb.jpg" id="search_id_DisplayCase"><a href="DisplayCase">DisplayCase</a> - Fully closed box intended to be cut from transparent acrylics and to serve as a display case.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/ElectronicsBox-thumb.jpg" id="search_id_ElectronicsBox"><a href="ElectronicsBox">ElectronicsBox</a> - Closed box with screw on top and mounting holes</li>
+     <li class="thumbnail" data-thumbnail="static/samples/EngravingFrame-thumb.jpg" id="search_id_EngravingFrame"><a href="EngravingFrame">EngravingFrame</a> - A frame for an engraving ; can be either standing or hanging, both in portrait or landscape</li>
+     <li class="thumbnail" data-thumbnail="static/samples/EuroRackSkiff-thumb.jpg" id="search_id_EuroRackSkiff"><a href="EuroRackSkiff">EuroRackSkiff</a> - 3U Height case with adjustable width and height and included rails</li>
+     <li class="thumbnail" data-thumbnail="static/samples/HalfBox-thumb.jpg" id="search_id_HalfBox"><a href="HalfBox">HalfBox</a> - Configurable half of a box which can be: a bookend, a hanging shelf, an angle clamping jig, ...</li>
+     <li class="thumbnail" data-thumbnail="static/samples/HingeBox-thumb.jpg" id="search_id_HingeBox"><a href="HingeBox">HingeBox</a> - Box with lid attached by cabinet hinges</li>
+     <li class="thumbnail" data-thumbnail="static/samples/IntegratedHingeBox-thumb.jpg" id="search_id_IntegratedHingeBox"><a href="IntegratedHingeBox">IntegratedHingeBox</a> - Box with lid and integrated hinge.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Keypad-thumb.jpg" id="search_id_Keypad"><a href="Keypad">Keypad</a> - Generator for keypads with mechanical switches.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/NotesHolder-thumb.jpg" id="search_id_NotesHolder"><a href="NotesHolder">NotesHolder</a> - Box for holding a stack of paper, coasters etc</li>
+     <li class="thumbnail" data-thumbnail="static/samples/OpenBox-thumb.jpg" id="search_id_OpenBox"><a href="OpenBox">OpenBox</a> - Box with top and front open</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PirateChest-thumb.jpg" id="search_id_PirateChest"><a href="PirateChest">PirateChest</a> - Box with polygon lid with chest hinges.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Rack10Box-thumb.jpg" id="search_id_Rack10Box"><a href="Rack10Box">Rack10Box</a> - Closed box with screw on top for mounting in a 10" rack.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Rack19Box-thumb.jpg" id="search_id_Rack19Box"><a href="Rack19Box">Rack19Box</a> - Closed box with screw on top for mounting in a 19" rack.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Rack19HalfWidth-thumb.jpg" id="search_id_Rack19HalfWidth"><a href="Rack19HalfWidth">Rack19HalfWidth</a> - Half width 19inch rack unit for musical equipment.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RackBox-thumb.jpg" id="search_id_RackBox"><a href="RackBox">RackBox</a> - Closed box with screw on top and mounting holes</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RegularBox-thumb.jpg" id="search_id_RegularBox"><a href="RegularBox">RegularBox</a> - Box with regular polygon as base</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RegularStarBox-thumb.jpg" id="search_id_RegularStarBox"><a href="RegularStarBox">RegularStarBox</a> - Regular polygon boxes that form a star when closed</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SideDoorHousing-thumb.jpg" id="search_id_SideDoorHousing"><a href="SideDoorHousing">SideDoorHousing</a> - Box with service hatches on either one or both of the sides that are locked with latches</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SideHingeBox-thumb.jpg" id="search_id_SideHingeBox"><a href="SideHingeBox">SideHingeBox</a> - Box, with an hinge that does not protrude from the back of the box, and a latch.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SlidingDrawer-thumb.jpg" id="search_id_SlidingDrawer"><a href="SlidingDrawer">SlidingDrawer</a> - Sliding drawer box</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SlidingLidBox-thumb.jpg" id="search_id_SlidingLidBox"><a href="SlidingLidBox">SlidingLidBox</a> - Box with rails for a sliding lid</li>
+     <li class="thumbnail" data-thumbnail="static/samples/StevensonScreenBox-thumb.jpg" id="search_id_StevensonScreenBox"><a href="StevensonScreenBox">StevensonScreenBox</a> - A box with Stevenson Screens front and back.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/TwoPiece-thumb.jpg" id="search_id_TwoPiece"><a href="TwoPiece">TwoPiece</a> - A two piece box where top slips over the bottom half to form the enclosure.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/UnevenHeightBox-thumb.jpg" id="search_id_UnevenHeightBox"><a href="UnevenHeightBox">UnevenHeightBox</a> - Box with different height in each corner</li>
+     <li class="thumbnail" data-thumbnail="static/samples/UniversalBox-thumb.jpg" id="search_id_UniversalBox"><a href="UniversalBox">UniversalBox</a> - Box with various options for different styles and lids</li>
+   </ul>
+  </div>
+
+<h3 id="h-1"
+    data-id="1"
+    data-thumbnail="static/samples/RoundedBox-thumb.jpg"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Boxes with flex
+</h3>
+  <div id="1">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/BreadBox-thumb.jpg" id="search_id_BreadBox"><a href="BreadBox">BreadBox</a> - A BreadBox with a gliding door</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DoubleFlexDoorBox-thumb.jpg" id="search_id_DoubleFlexDoorBox"><a href="DoubleFlexDoorBox">DoubleFlexDoorBox</a> - Box with two part lid with living hinges and round corners</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexBook-thumb.jpg" id="search_id_FlexBook"><a href="FlexBook">FlexBook</a> - Box with living hinge styled after a book.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexBox-thumb.jpg" id="search_id_FlexBox"><a href="FlexBox">FlexBox</a> - Box with living hinge and round corners</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexBox2-thumb.jpg" id="search_id_FlexBox2"><a href="FlexBox2">FlexBox2</a> - Box with living hinge and top corners rounded</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexBox3-thumb.jpg" id="search_id_FlexBox3"><a href="FlexBox3">FlexBox3</a> - Box with living hinge</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexBox4-thumb.jpg" id="search_id_FlexBox4"><a href="FlexBox4">FlexBox4</a> - Box with living hinge and left corners rounded</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexBox5-thumb.jpg" id="search_id_FlexBox5"><a href="FlexBox5">FlexBox5</a> - Box with living hinge and round corners</li>
+     <li class="thumbnail" data-thumbnail="static/samples/HeartBox-thumb.jpg" id="search_id_HeartBox"><a href="HeartBox">HeartBox</a> - Box in the form of a heart</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RoundedBox-thumb.jpg" id="search_id_RoundedBox"><a href="RoundedBox">RoundedBox</a> - Box with vertical edges rounded</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RoundedRegularBox-thumb.jpg" id="search_id_RoundedRegularBox"><a href="RoundedRegularBox">RoundedRegularBox</a> - Regular polygon box with rounded vertical edges.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RoundedTrapezoidBox-thumb.jpg" id="search_id_RoundedTrapezoidBox"><a href="RoundedTrapezoidBox">RoundedTrapezoidBox</a> - Trapezoid box with rounded vertical edges.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/ShutterBox-thumb.jpg" id="search_id_ShutterBox"><a href="ShutterBox">ShutterBox</a> - Box with a rolling shutter made of flex</li>
+     <li class="thumbnail" data-thumbnail="static/samples/UBox-thumb.jpg" id="search_id_UBox"><a href="UBox">UBox</a> - Box various options for different stypes and lids</li>
+   </ul>
+  </div>
+
+<h3 id="h-2"
+    data-id="2"
+    data-thumbnail="static/samples/TypeTray-thumb.jpg"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Trays and Drawer Inserts
+</h3>
+  <div id="2">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/CompartmentBox-thumb.jpg" id="search_id_CompartmentBox"><a href="CompartmentBox">CompartmentBox</a> - Type tray variation with sliding lid</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DividerTray-thumb.jpg" id="search_id_DividerTray"><a href="DividerTray">DividerTray</a> - Divider tray - rows and dividers</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DrillBox-thumb.jpg" id="search_id_DrillBox"><a href="DrillBox">DrillBox</a> - A parametrized box for drills</li>
+     <li class="thumbnail" data-thumbnail="static/samples/GridfinityBase-thumb.jpg" id="search_id_GridfinityBase"><a href="GridfinityBase">GridfinityBase</a> - A parameterized Gridfinity base</li>
+     <li class="thumbnail" data-thumbnail="static/samples/GridfinityDrillBox-thumb.jpg" id="search_id_GridfinityDrillBox"><a href="GridfinityDrillBox">GridfinityDrillBox</a> - A Gridfinity box for drills or similar tools</li>
+     <li class="thumbnail" data-thumbnail="static/samples/GridfinityTrayLayout-thumb.jpg" id="search_id_GridfinityTrayLayout"><a href="GridfinityTrayLayout">GridfinityTrayLayout</a> - A Gridfinity Tray Generator based on TrayLayout</li>
+     <li class="thumbnail" data-thumbnail="static/samples/HobbyCase-thumb.jpg" id="search_id_HobbyCase"><a href="HobbyCase">HobbyCase</a> - A case that can be used in any hobby involving small pieces in need of organizing.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PenHolderBox-thumb.jpg" id="search_id_PenHolderBox"><a href="PenHolderBox">PenHolderBox</a> - PenHolderBox: Open pen holder box with two internal grid plates.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SlantedTray-thumb.jpg" id="search_id_SlantedTray"><a href="SlantedTray">SlantedTray</a> - One row tray with high back wall and low front wall</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SmallPartsTray-thumb.jpg" id="search_id_SmallPartsTray"><a href="SmallPartsTray">SmallPartsTray</a> - Tray with slants to easier get out game tokens or screws</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SmallPartsTray2-thumb.jpg" id="search_id_SmallPartsTray2"><a href="SmallPartsTray2">SmallPartsTray2</a> - A Type Tray variant with slopes toward the front</li>
+     <li class="thumbnail" data-thumbnail="static/samples/TrayInsert-thumb.jpg" id="search_id_TrayInsert"><a href="TrayInsert">TrayInsert</a> - Tray insert without floor and outer walls - allows only continuous walls</li>
+     <li class="thumbnail" data-thumbnail="static/samples/TrayLayout-thumb.jpg" id="search_id_TrayLayout"><a href="TrayLayout">TrayLayout</a> - Generate a typetray from a layout file.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/TypeTray-thumb.jpg" id="search_id_TypeTray"><a href="TypeTray">TypeTray</a> - Type tray - allows only continuous walls</li>
+   </ul>
+  </div>
+
+<h3 id="h-3"
+    data-id="3"
+    data-thumbnail="static/samples/DisplayShelf-thumb.jpg"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Shelves
+</h3>
+  <div id="3">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/BinTray-thumb.jpg" id="search_id_BinTray"><a href="BinTray">BinTray</a> - A Type tray variant to be used up right with sloped walls in front</li>
+     <li class="thumbnail" data-thumbnail="static/samples/CardHolder-thumb.jpg" id="search_id_CardHolder"><a href="CardHolder">CardHolder</a> - Shelf for holding (multiple) piles of playing cards / notes</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DiscRack-thumb.jpg" id="search_id_DiscRack"><a href="DiscRack">DiscRack</a> - A rack for storing disk-shaped objects vertically next to each other</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DisplayShelf-thumb.jpg" id="search_id_DisplayShelf"><a href="DisplayShelf">DisplayShelf</a> - Shelf with slanted floors</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PaintStorage-thumb.jpg" id="search_id_PaintStorage"><a href="PaintStorage">PaintStorage</a> - Stackable storage for hobby paint or other things</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SBCMicroRack-thumb.jpg" id="search_id_SBCMicroRack"><a href="SBCMicroRack">SBCMicroRack</a> - Stackable rackable racks for SBC Pi-Style Computers</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SpicesRack-thumb.jpg" id="search_id_SpicesRack"><a href="SpicesRack">SpicesRack</a> - Rack for cans of spices</li>
+     <li class="thumbnail" data-thumbnail="static/samples/StackableBin-thumb.jpg" id="search_id_StackableBin"><a href="StackableBin">StackableBin</a> - Stackable bin base on bintray</li>
+     <li class="thumbnail" data-thumbnail="static/samples/StorageRack-thumb.jpg" id="search_id_StorageRack"><a href="StorageRack">StorageRack</a> - StorageRack to store boxes and trays which have their own floor</li>
+     <li class="thumbnail" data-thumbnail="static/samples/StorageShelf-thumb.jpg" id="search_id_StorageShelf"><a href="StorageShelf">StorageShelf</a> - StorageShelf can be used to store Typetray</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WineRack-thumb.jpg" id="search_id_WineRack"><a href="WineRack">WineRack</a> - Honey Comb Style Wine Rack</li>
+   </ul>
+  </div>
+
+<h3 id="h-4"
+    data-id="4"
+    data-thumbnail="static/samples/WallTypeTray-thumb.jpg"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    WallMounted
+</h3>
+  <div id="4">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/DinRailBox-thumb.jpg" id="search_id_DinRailBox"><a href="DinRailBox">DinRailBox</a> - Box for DIN rail used in electrical junction boxes</li>
+     <li class="thumbnail" data-thumbnail="static/samples/KeyHolder-thumb.jpg" id="search_id_KeyHolder"><a href="KeyHolder">KeyHolder</a> - Wall organizer with hooks for keys or similar small items</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RollHolder-thumb.jpg" id="search_id_RollHolder"><a href="RollHolder">RollHolder</a> - Holder for kitchen rolls or other rolls</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SkadisBoard-thumb.jpg" id="search_id_SkadisBoard"><a href="SkadisBoard">SkadisBoard</a> - Customizable Ikea like pegboard</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SkadisStand-thumb.jpg" id="search_id_SkadisStand"><a href="SkadisStand">SkadisStand</a> - Feet for a Skadis board so it can stand on its own</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallCaliper-thumb.jpg" id="search_id_WallCaliper"><a href="WallCaliper">WallCaliper</a> - Holds a single caliper to a wall</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallChiselHolder-thumb.jpg" id="search_id_WallChiselHolder"><a href="WallChiselHolder">WallChiselHolder</a> - Wall tool holder for chisels, files and similar tools</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallConsole-thumb.jpg" id="search_id_WallConsole"><a href="WallConsole">WallConsole</a> - Outset and angled plate to mount stuff to</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallDrillBox-thumb.jpg" id="search_id_WallDrillBox"><a href="WallDrillBox">WallDrillBox</a> - Box for drills with each compartment with a different height</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallEdges-thumb.jpg" id="search_id_WallEdges"><a href="WallEdges">WallEdges</a> - Shows the different edge types for wall systems</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallHook-thumb.jpg" id="search_id_WallHook"><a href="WallHook">WallHook</a> - Hook to install on a wall</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallHopper-thumb.jpg" id="search_id_WallHopper"><a href="WallHopper">WallHopper</a> - Storage hopper with dispensing tray</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallPinRow-thumb.jpg" id="search_id_WallPinRow"><a href="WallPinRow">WallPinRow</a> - Outset and angled plate to mount stuff to</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallPlaneHolder-thumb.jpg" id="search_id_WallPlaneHolder"><a href="WallPlaneHolder">WallPlaneHolder</a> - Hold a plane to a wall</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallPliersHolder-thumb.jpg" id="search_id_WallPliersHolder"><a href="WallPliersHolder">WallPliersHolder</a> - Bar to hang pliers on</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallRack-thumb.jpg" id="search_id_WallRack"><a href="WallRack">WallRack</a> - Wall mountable rack for spices or other items</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallRollHolder-thumb.jpg" id="search_id_WallRollHolder"><a href="WallRollHolder">WallRollHolder</a> - Holder for kitchen rolls or other rolls</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallSlottedHolder-thumb.jpg" id="search_id_WallSlottedHolder"><a href="WallSlottedHolder">WallSlottedHolder</a> - Wall tool holder with slots</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallStackableBin-thumb.jpg" id="search_id_WallStackableBin"><a href="WallStackableBin">WallStackableBin</a> - A wall-mounted bin that can stack or hang from a wall.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallStairs-thumb.jpg" id="search_id_WallStairs"><a href="WallStairs">WallStairs</a> - Platforms in different heights e.g. for screw drivers</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallTypeTray-thumb.jpg" id="search_id_WallTypeTray"><a href="WallTypeTray">WallTypeTray</a> - Type tray - allows only continuous walls</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WallWrenchHolder-thumb.jpg" id="search_id_WallWrenchHolder"><a href="WallWrenchHolder">WallWrenchHolder</a> - Hold a set of wrenches at a wall</li>
+   </ul>
+  </div>
+
+<h3 id="h-5"
+    data-id="5"
+    data-thumbnail="static/samples/"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Hole patterns
+</h3>
+  <div id="5">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/FanHole-thumb.jpg" id="search_id_FanHole"><a href="FanHole">FanHole</a> - Hole pattern for mounting a fan</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FrontPanel-thumb.jpg" id="search_id_FrontPanel"><a href="FrontPanel">FrontPanel</a> - Mounting Holes and cutouts for all your holy needs.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/HolePattern-thumb.jpg" id="search_id_HolePattern"><a href="HolePattern">HolePattern</a> - Generate hole patterns in different simple shapes</li>
+     <li class="thumbnail" data-thumbnail="static/samples/NemaPattern-thumb.jpg" id="search_id_NemaPattern"><a href="NemaPattern">NemaPattern</a> - Mounting holes for a Nema motor</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SevenSegmentPattern-thumb.jpg" id="search_id_SevenSegmentPattern"><a href="SevenSegmentPattern">SevenSegmentPattern</a> - Holepatterns and walls for a seven segment digit</li>
+   </ul>
+  </div>
+
+<h3 id="h-6"
+    data-id="6"
+    data-thumbnail="static/samples/BurnTest-thumb.jpg"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Parts and Samples
+</h3>
+  <div id="6">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/BurnTest-thumb.jpg" id="search_id_BurnTest"><a href="BurnTest">BurnTest</a> - Test different burn values</li>
+     <li class="thumbnail" data-thumbnail="static/samples/ConcaveKnob-thumb.jpg" id="search_id_ConcaveKnob"><a href="ConcaveKnob">ConcaveKnob</a> - Round knob serrated outside for better gripping</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FillTest-thumb.jpg" id="search_id_FillTest"><a href="FillTest">FillTest</a> - Piece for testing different settings for hole filling</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexTest-thumb.jpg" id="search_id_FlexTest"><a href="FlexTest">FlexTest</a> - Piece for testing different flex settings</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FlexTest2-thumb.jpg" id="search_id_FlexTest2"><a href="FlexTest2">FlexTest2</a> - Piece for testing 2D flex settings</li>
+     <li class="thumbnail" data-thumbnail="static/samples/GearBox-thumb.jpg" id="search_id_GearBox"><a href="GearBox">GearBox</a> - Gearbox with multiple identical stages</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Gears-thumb.jpg" id="search_id_Gears"><a href="Gears">Gears</a> - Gears</li>
+     <li class="thumbnail" data-thumbnail="static/samples/LBeam-thumb.jpg" id="search_id_LBeam"><a href="LBeam">LBeam</a> - Simple L-Beam: two pieces joined with a right angle</li>
+     <li class="thumbnail" data-thumbnail="static/samples/LaserHoldfast-thumb.jpg" id="search_id_LaserHoldfast"><a href="LaserHoldfast">LaserHoldfast</a> - A holdfast for honey comb tables of laser cutters</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Linkage-thumb.jpg" id="search_id_Linkage"><a href="Linkage">Linkage</a> - Model for trying out linkages</li>
+     <li class="thumbnail" data-thumbnail="static/samples/NemaMount-thumb.jpg" id="search_id_NemaMount"><a href="NemaMount">NemaMount</a> - Mounting bracket for a Nema motor</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Planetary-thumb.jpg" id="search_id_Planetary"><a href="Planetary">Planetary</a> - Planetary Gear with possibly multiple identical stages</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Pulley-thumb.jpg" id="search_id_Pulley"><a href="Pulley">Pulley</a> - Timing belt pulleys for different profiles</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RectangularWall-thumb.jpg" id="search_id_RectangularWall"><a href="RectangularWall">RectangularWall</a> - Simple wall with options for different edges</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RobotArm-thumb.jpg" id="search_id_RobotArm"><a href="RobotArm">RobotArm</a> - Segments of servo powered robot arm</li>
+     <li class="thumbnail" data-thumbnail="static/samples/TriangularWall-thumb.jpg" id="search_id_TriangularWall"><a href="TriangularWall">TriangularWall</a> - Simple wall with options for different edges</li>
+     <li class="thumbnail" data-thumbnail="static/samples/WavyKnob-thumb.jpg" id="search_id_WavyKnob"><a href="WavyKnob">WavyKnob</a> - Round knob serrated outside for better gripping</li>
+     <li class="thumbnail" data-thumbnail="static/samples/ZBeam-thumb.jpg" id="search_id_ZBeam"><a href="ZBeam">ZBeam</a> - Z-Beam (or U-Beam): three pieces joined at right angles</li>
+   </ul>
+  </div>
+
+<h3 id="h-7"
+    data-id="7"
+    data-thumbnail="static/samples/TrafficLight-thumb.jpg"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Misc
+</h3>
+  <div id="7">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/AgricolaInsert-thumb.jpg" id="search_id_AgricolaInsert"><a href="AgricolaInsert">AgricolaInsert</a> - 
+Agricola Revised Edition game box insert, including some expansions.
+</li>
+     <li class="thumbnail" data-thumbnail="static/samples/AirPurifier-thumb.jpg" id="search_id_AirPurifier"><a href="AirPurifier">AirPurifier</a> - Housing for the Nukit Open Air Purifier</li>
+     <li class="thumbnail" data-thumbnail="static/samples/AllEdges-thumb.jpg" id="search_id_AllEdges"><a href="AllEdges">AllEdges</a> - Showing all edge types</li>
+     <li class="thumbnail" data-thumbnail="static/samples/AngledCutJig-thumb.jpg" id="search_id_AngledCutJig"><a href="AngledCutJig">AngledCutJig</a> - Jig for making angled cuts in a laser cutter</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Arcade-thumb.jpg" id="search_id_Arcade"><a href="Arcade">Arcade</a> - Desktop Arcade Machine</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Atreus21-thumb.jpg" id="search_id_Atreus21"><a href="Atreus21">Atreus21</a> - Generator for a split atreus keyboard.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BeeQueenCage-thumb.jpg" id="search_id_BeeQueenCage"><a href="BeeQueenCage">BeeQueenCage</a> - Cage box to house a bee queen</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BeeQueenTransportBox-thumb.jpg" id="search_id_BeeQueenTransportBox"><a href="BeeQueenTransportBox">BeeQueenTransportBox</a> - Box to hold Bee Queen Transport Cages</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BirdHouse-thumb.jpg" id="search_id_BirdHouse"><a href="BirdHouse">BirdHouse</a> - Simple Bird House</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BookHolder-thumb.jpg" id="search_id_BookHolder"><a href="BookHolder">BookHolder</a> - Angled display stand for books, ring files, flyers, postcards, or business cards.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BottleStack-thumb.jpg" id="search_id_BottleStack"><a href="BottleStack">BottleStack</a> - Stack bottles in a fridge</li>
+     <li class="thumbnail" data-thumbnail="static/samples/BottleTag-thumb.jpg" id="search_id_BottleTag"><a href="BottleTag">BottleTag</a> - Paper slip over bottle tag</li>
+     <li class="thumbnail" data-thumbnail="static/samples/CanStorage-thumb.jpg" id="search_id_CanStorage"><a href="CanStorage">CanStorage</a> - Storage box for round containers</li>
+     <li class="thumbnail" data-thumbnail="static/samples/CarbonFilter-thumb.jpg" id="search_id_CarbonFilter"><a href="CarbonFilter">CarbonFilter</a> - Compact filter for activated char coal pellets</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Clock-thumb.jpg" id="search_id_Clock"><a href="Clock">Clock</a> - Clock (old style with clock hands)</li>
+     <li class="thumbnail" data-thumbnail="static/samples/CoffeeCapsuleHolder-thumb.jpg" id="search_id_CoffeeCapsuleHolder"><a href="CoffeeCapsuleHolder">CoffeeCapsuleHolder</a> - 
+Coffee capsule holder
+</li>
+     <li class="thumbnail" data-thumbnail="static/samples/CoinBankSafe-thumb.jpg" id="search_id_CoinBankSafe"><a href="CoinBankSafe">CoinBankSafe</a> - A piggy-bank designed to look like a safe.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/CoinDisplay-thumb.jpg" id="search_id_CoinDisplay"><a href="CoinDisplay">CoinDisplay</a> - A showcase for a single coin</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Desksign-thumb.jpg" id="search_id_Desksign"><a href="Desksign">Desksign</a> - Simple diagonal plate with stands to show name or message.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DiceTower-thumb.jpg" id="search_id_DiceTower"><a href="DiceTower">DiceTower</a> - Tool for fairly rolling dice</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Dispenser-thumb.jpg" id="search_id_Dispenser"><a href="Dispenser">Dispenser</a> - Dispenser for stackable (flat) items of same size</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Display-thumb.jpg" id="search_id_Display"><a href="Display">Display</a> - Display for flyers or leaflets</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DrillGauge-thumb.jpg" id="search_id_DrillGauge"><a href="DrillGauge">DrillGauge</a> - A drill gauge with a narrowing slot</li>
+     <li class="thumbnail" data-thumbnail="static/samples/DrillStand-thumb.jpg" id="search_id_DrillStand"><a href="DrillStand">DrillStand</a> - Box for drills with each compartment of a different height</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FatBallDispenser-thumb.jpg" id="search_id_FatBallDispenser"><a href="FatBallDispenser">FatBallDispenser</a> - Birdhouse for fat balls.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FilamentSpool-thumb.jpg" id="search_id_FilamentSpool"><a href="FilamentSpool">FilamentSpool</a> - A two part spool for 3D printing filament</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Folder-thumb.jpg" id="search_id_Folder"><a href="Folder">Folder</a> - Book cover with flex for the spine</li>
+     <li class="thumbnail" data-thumbnail="static/samples/FrameLoom-thumb.jpg" id="search_id_FrameLoom"><a href="FrameLoom">FrameLoom</a> - 
+A frame loom with a rotating heddle bar. At default-ish sizes, you can fit all the parts inside the loom cutout.
+</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Hook-thumb.jpg" id="search_id_Hook"><a href="Hook">Hook</a> - A hook with a rectangular mouth to mount at the wall</li>
+     <li class="thumbnail" data-thumbnail="static/samples/JointPanel-thumb.jpg" id="search_id_JointPanel"><a href="JointPanel">JointPanel</a> - Create pieces larger than your laser cutter by joining them with Dove Tails</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Kamishibai-thumb.jpg" id="search_id_Kamishibai"><a href="Kamishibai">Kamishibai</a> - Kamishibai butai (japanese image theatre)</li>
+     <li class="thumbnail" data-thumbnail="static/samples/LaptopStand-thumb.jpg" id="search_id_LaptopStand"><a href="LaptopStand">LaptopStand</a> - A simple X shaped frame to support a laptop on a given angle</li>
+     <li class="thumbnail" data-thumbnail="static/samples/LaserClamp-thumb.jpg" id="search_id_LaserClamp"><a href="LaserClamp">LaserClamp</a> - A clamp to hold down material to a knife table</li>
+     <li class="thumbnail" data-thumbnail="static/samples/MagazineFile-thumb.jpg" id="search_id_MagazineFile"><a href="MagazineFile">MagazineFile</a> - Open magazine file</li>
+     <li class="thumbnail" data-thumbnail="static/samples/MakitaPowerSupply-thumb.jpg" id="search_id_MakitaPowerSupply"><a href="MakitaPowerSupply">MakitaPowerSupply</a> - Bench power supply powered with Maktia 18V battery or laptop power supply</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Matrix-thumb.jpg" id="search_id_Matrix"><a href="Matrix">Matrix</a> - WS2812b matrix enclosure</li>
+     <li class="thumbnail" data-thumbnail="static/samples/NightLightBox-thumb.jpg" id="search_id_NightLightBox"><a href="NightLightBox">NightLightBox</a> - Simple decorative lamp with creatively laser cut plates</li>
+     <li class="thumbnail" data-thumbnail="static/samples/OttoBody-thumb.jpg" id="search_id_OttoBody"><a href="OttoBody">OttoBody</a> - Otto LC - a laser cut chassis for Otto DIY - body</li>
+     <li class="thumbnail" data-thumbnail="static/samples/OttoLegs-thumb.jpg" id="search_id_OttoLegs"><a href="OttoLegs">OttoLegs</a> - Otto LC - a laser cut chassis for Otto DIY - legs</li>
+     <li class="thumbnail" data-thumbnail="static/samples/OttoSoles-thumb.jpg" id="search_id_OttoSoles"><a href="OttoSoles">OttoSoles</a> - Foam soles for the OttO bot</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PaperBox-thumb.jpg" id="search_id_PaperBox"><a href="PaperBox">PaperBox</a> - 
+Box made of paper, with lid.
+</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PhoneHolder-thumb.jpg" id="search_id_PhoneHolder"><a href="PhoneHolder">PhoneHolder</a> - 
+Smartphone desk holder
+</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PhotoFrame-thumb.jpg" id="search_id_PhotoFrame"><a href="PhotoFrame">PhotoFrame</a> - 
+3-layer photo frame with a slot at the top to slide matboard/acrylic/glass over the photo after glue-up.
+</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PizzaShovel-thumb.jpg" id="search_id_PizzaShovel"><a href="PizzaShovel">PizzaShovel</a> - Pizza shovel with conveyor belt action</li>
+     <li class="thumbnail" data-thumbnail="static/samples/PoleHook-thumb.jpg" id="search_id_PoleHook"><a href="PoleHook">PoleHook</a> - Hook for pole like things to be clamped to another pole</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Ramp-thumb.jpg" id="search_id_Ramp"><a href="Ramp">Ramp</a> - Ramp for accessibility purposes</li>
+     <li class="thumbnail" data-thumbnail="static/samples/RoyalGame-thumb.jpg" id="search_id_RoyalGame"><a href="RoyalGame">RoyalGame</a> - The Royal Game of Ur</li>
+     <li class="thumbnail" data-thumbnail="static/samples/SevenSegmentClock-thumb.jpg" id="search_id_SevenSegmentClock"><a href="SevenSegmentClock">SevenSegmentClock</a> - Seven segment clock build with LED stripe</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Shadowbox-thumb.jpg" id="search_id_Shadowbox"><a href="Shadowbox">Shadowbox</a> - The frame and spacers necessary to display a shadowbox / lightbox.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Shoe-thumb.jpg" id="search_id_Shoe"><a href="Shoe">Shoe</a> - Shoe shaped box</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Sphere-thumb.jpg" id="search_id_Sphere"><a href="Sphere">Sphere</a> - Actually not a sphere, but a hosohedron. Also not actually a box, but a globe, lamp, ornament or whatever you want it to be.</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Spool-thumb.jpg" id="search_id_Spool"><a href="Spool">Spool</a> - A simple spool</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Stachel-thumb.jpg" id="search_id_Stachel"><a href="Stachel">Stachel</a> - Bass Recorder Endpin</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Tetris-thumb.jpg" id="search_id_Tetris"><a href="Tetris">Tetris</a> - 3D Tetris shapes</li>
+     <li class="thumbnail" data-thumbnail="static/samples/TrafficLight-thumb.jpg" id="search_id_TrafficLight"><a href="TrafficLight">TrafficLight</a> - Traffic light</li>
+     <li class="thumbnail" data-thumbnail="static/samples/TriangleLamp-thumb.jpg" id="search_id_TriangleLamp"><a href="TriangleLamp">TriangleLamp</a> - Triangle LED Lamp</li>
+   </ul>
+  </div>
+
+<h3 id="h-8"
+    data-id="8"
+    data-thumbnail="static/samples/"
+    role="button"
+    aria-expanded="false"
+    class="toggle thumbnail open"
+    tabindex="0"
+>
+    Unstable
+</h3>
+  <div id="8">
+   <ul>
+     <li class="thumbnail" data-thumbnail="static/samples/Castle-thumb.jpg" id="search_id_Castle"><a href="Castle">Castle</a> - Castle tower with two walls</li>
+     <li class="thumbnail" data-thumbnail="static/samples/OrganPipe-thumb.jpg" id="search_id_OrganPipe"><a href="OrganPipe">OrganPipe</a> - Rectangular organ pipe based on pipecalc</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Planetary2-thumb.jpg" id="search_id_Planetary2"><a href="Planetary2">Planetary2</a> - Balanced force Difference Planetary Gear (not yet working properly)</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Platonic-thumb.jpg" id="search_id_Platonic"><a href="Platonic">Platonic</a> - Platonic solids generator</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Rotary-thumb.jpg" id="search_id_Rotary"><a href="Rotary">Rotary</a> - Rotary Attachment for engraving cylindrical objects in a laser cutter</li>
+     <li class="thumbnail" data-thumbnail="static/samples/Silverware-thumb.jpg" id="search_id_Silverware"><a href="Silverware">Silverware</a> - 
+Cuttlery stand with carrying grip
+using flex for rounded corners
+</li>
+   </ul>
+  </div>
+
+</div>
+
+<div style="width: 5%; float: left;"></div>
+<div class="clear"></div>
+<hr>
+</div>
+</div>
+</body>
+</html>

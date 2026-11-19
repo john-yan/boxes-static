@@ -1,0 +1,169 @@
+<!DOCTYPE html><html>
+<head>
+    <base href="../">
+    <title>WallRack - Boxes</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="static/boxes-logo.svg" sizes="any">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+
+    <link rel="stylesheet" href="static/self.css">
+    <script src="static/self.js"></script>
+    <script src="shim/boxes-browser.js"></script>
+</head>
+<body onload="initArgsPage(3)">
+
+<div class="argumentcontainer">
+<div style="float: left;">
+<a href="./"><h1>Boxes.py</h1></a>
+</div>
+<div style="width: 120px; float: right;">
+<img alt="self-Logo" src="static/boxes-logo.svg" width="120">
+</div>
+<div>
+<div class="clear"></div>
+<hr>
+<div class="linkbar">
+<ul>
+  <li><a href="https://florianfesti.github.io/boxes/html/usermanual.html" target="_blank" rel="noopener">Help</a></li>
+  <li><a href="https://hackaday.io/project/10649-boxespy" target="_blank" rel="noopener">Home Page</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/index.html" target="_blank" rel="noopener">Documentation</a></li>
+  <li><a href="https://github.com/florianfesti/boxes" target="_blank" rel="noopener">Sources</a></li>
+  <li><a href="https://florianfesti.github.io/boxes/html/give_back.html" target="_blank" rel="noopener">Give Back</a></li>
+    <li class="right">Preview <input id="preview_chk" type="checkbox" checked="checked"> </li>
+  <li class="right"><!-- No other languages to select found. -->  </li>
+
+</ul>
+</div>
+<hr>
+
+<h2 style="margin: 0px 0px 0px 20px;">WallRack</h2>
+        <p>Wall mountable rack for spices or other items</p>
+<form id="arguments" action="./WallRack" method="GET" rel="nofollow">
+        <h3 id="h-0" data-id="0" role="button" aria-expanded="true" tabindex="0" class="toggle open">Settings for Finger Joints</h3>
+<table role="presentation" id="0">
+<tr><td id="FingerJoint_style_id"><label for="FingerJoint_style">style</label></td><td><select name="FingerJoint_style" id="FingerJoint_style" aria-labeledby="FingerJoint_style_id FingerJoint_style_description" size="1">
+    <option value="rectangular" selected="selected">rectangular</option>
+    <option value="springs">springs</option>
+    <option value="barbs">barbs</option>
+    <option value="snap">snap</option></select>
+</td><td id="FingerJoint_style_description"><p>style of the fingers</p></td></tr>
+<tr><td id="FingerJoint_surroundingspaces_id"><label for="FingerJoint_surroundingspaces">surroundingspaces</label></td><td><input name="FingerJoint_surroundingspaces" id="FingerJoint_surroundingspaces" aria-labeledby="FingerJoint_surroundingspaces_id FingerJoint_surroundingspaces_description" type="text" value="1.0"></td><td id="FingerJoint_surroundingspaces_description"><p>space at the start and end in multiple of normal spaces</p></td></tr>
+<tr><td id="FingerJoint_bottom_lip_id"><label for="FingerJoint_bottom_lip">bottom_lip</label></td><td><input name="FingerJoint_bottom_lip" id="FingerJoint_bottom_lip" aria-labeledby="FingerJoint_bottom_lip_id FingerJoint_bottom_lip_description" type="text" value="0.0"></td><td id="FingerJoint_bottom_lip_description"><p>height of the bottom lips sticking out  (multiples of thickness) FingerHoleEdge only!</p></td></tr>
+<tr><td id="FingerJoint_edge_width_id"><label for="FingerJoint_edge_width">edge_width</label></td><td><input name="FingerJoint_edge_width" id="FingerJoint_edge_width" aria-labeledby="FingerJoint_edge_width_id FingerJoint_edge_width_description" type="text" value="1.0"></td><td id="FingerJoint_edge_width_description"><p>space below holes of FingerHoleEdge (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_extra_length_id"><label for="FingerJoint_extra_length">extra_length</label></td><td><input name="FingerJoint_extra_length" id="FingerJoint_extra_length" aria-labeledby="FingerJoint_extra_length_id FingerJoint_extra_length_description" type="text" value="0.0"></td><td id="FingerJoint_extra_length_description"><p>extra material to grind away burn marks (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_finger_id"><label for="FingerJoint_finger">finger</label></td><td><input name="FingerJoint_finger" id="FingerJoint_finger" aria-labeledby="FingerJoint_finger_id FingerJoint_finger_description" type="text" value="2.0"></td><td id="FingerJoint_finger_description"><p>width of the fingers (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_play_id"><label for="FingerJoint_play">play</label></td><td><input name="FingerJoint_play" id="FingerJoint_play" aria-labeledby="FingerJoint_play_id FingerJoint_play_description" type="text" value="0.0"></td><td id="FingerJoint_play_description"><p>extra space to allow finger move in and out (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_space_id"><label for="FingerJoint_space">space</label></td><td><input name="FingerJoint_space" id="FingerJoint_space" aria-labeledby="FingerJoint_space_id FingerJoint_space_description" type="text" value="2.0"></td><td id="FingerJoint_space_description"><p>space between fingers (multiples of thickness)</p></td></tr>
+<tr><td id="FingerJoint_width_id"><label for="FingerJoint_width">width</label></td><td><input name="FingerJoint_width" id="FingerJoint_width" aria-labeledby="FingerJoint_width_id FingerJoint_width_description" type="text" value="1.0"></td><td id="FingerJoint_width_description"><p>width of finger holes (multiples of thickness)</p></td></tr>
+</table><h3 id="h-1" data-id="1" role="button" aria-expanded="true" tabindex="0" class="toggle open">Settings for Mounting Edge</h3>
+<table role="presentation" id="1">
+<tr><td id="Mounting_d_head_id"><label for="Mounting_d_head">d_head</label></td><td><input name="Mounting_d_head" id="Mounting_d_head" aria-labeledby="Mounting_d_head_id Mounting_d_head_description" type="text" value="6.5"></td><td id="Mounting_d_head_description"><p>head diameter of mounting screw (in mm)</p></td></tr>
+<tr><td id="Mounting_d_shaft_id"><label for="Mounting_d_shaft">d_shaft</label></td><td><input name="Mounting_d_shaft" id="Mounting_d_shaft" aria-labeledby="Mounting_d_shaft_id Mounting_d_shaft_description" type="text" value="3.0"></td><td id="Mounting_d_shaft_description"><p>shaft diameter of mounting screw (in mm)</p></td></tr>
+<tr><td id="Mounting_margin_id"><label for="Mounting_margin">margin</label></td><td><input name="Mounting_margin" id="Mounting_margin" aria-labeledby="Mounting_margin_id Mounting_margin_description" type="text" value="0.125"></td><td id="Mounting_margin_description"><p>minimum space left and right without holes (fraction of the edge length)</p></td></tr>
+<tr><td id="Mounting_num_id"><label for="Mounting_num">num</label></td><td><input name="Mounting_num" id="Mounting_num" aria-labeledby="Mounting_num_id Mounting_num_description" type="text" value="2"></td><td id="Mounting_num_description"><p>number of mounting holes (integer)</p></td></tr>
+<tr><td id="Mounting_side_id"><label for="Mounting_side">side</label></td><td><select name="Mounting_side" id="Mounting_side" aria-labeledby="Mounting_side_id Mounting_side_description" size="1">
+    <option value="back" selected="selected">back</option>
+    <option value="left">left</option>
+    <option value="right">right</option>
+    <option value="front">front</option></select>
+</td><td id="Mounting_side_description"><p>side of box (not all valid configurations make sense...)</p></td></tr>
+<tr><td id="Mounting_style_id"><label for="Mounting_style">style</label></td><td><select name="Mounting_style" id="Mounting_style" aria-labeledby="Mounting_style_id Mounting_style_description" size="1">
+    <option value="straight edge, within" selected="selected">straight edge, within</option>
+    <option value="straight edge, extended">straight edge, extended</option>
+    <option value="mounting tab">mounting tab</option></select>
+</td><td id="Mounting_style_description"><p>edge style</p></td></tr>
+</table><h3 id="h-2" data-id="2" role="button" aria-expanded="true" tabindex="0" class="toggle open">Settings for HandleEdge</h3>
+<table role="presentation" id="2">
+<tr><td id="HandleEdge_height_id"><label for="HandleEdge_height">height</label></td><td><input name="HandleEdge_height" id="HandleEdge_height" aria-labeledby="HandleEdge_height_id HandleEdge_height_description" type="text" value="20.0"></td><td id="HandleEdge_height_description"><p>height above the wall in mm</p></td></tr>
+<tr><td id="HandleEdge_hole_height_id"><label for="HandleEdge_hole_height">hole_height</label></td><td><input name="HandleEdge_hole_height" id="HandleEdge_hole_height" aria-labeledby="HandleEdge_hole_height_id HandleEdge_hole_height_description" type="text" value="75.0"></td><td id="HandleEdge_hole_height_description"><p>height of hole(s) in percentage of maximum hole height (handle height - 2 * material thickness)</p></td></tr>
+<tr><td id="HandleEdge_hole_width_id"><label for="HandleEdge_hole_width">hole_width</label></td><td><input name="HandleEdge_hole_width" id="HandleEdge_hole_width" aria-labeledby="HandleEdge_hole_width_id HandleEdge_hole_width_description" type="text" value="40:40"></td><td id="HandleEdge_hole_width_description"><p>width of hole(s) in percentage of maximum hole width (width of edge - (n+1) * material thickness)</p></td></tr>
+<tr><td id="HandleEdge_on_sides_id"><label for="HandleEdge_on_sides">on_sides</label></td><td><input name="HandleEdge_on_sides" type="hidden" value="0">
+<input name="HandleEdge_on_sides" id="HandleEdge_on_sides" aria-labeledby="HandleEdge_on_sides_id HandleEdge_on_sides_description" type="checkbox" value="1" checked="checked"></td><td id="HandleEdge_on_sides_description"><p>added to side panels if checked, to front and back otherwise (only used with top_edge parameter)</p></td></tr>
+<tr><td id="HandleEdge_radius_id"><label for="HandleEdge_radius">radius</label></td><td><input name="HandleEdge_radius" id="HandleEdge_radius" aria-labeledby="HandleEdge_radius_id HandleEdge_radius_description" type="text" value="10.0"></td><td id="HandleEdge_radius_description"><p>radius of corners in mm</p></td></tr>
+<tr><td id="HandleEdge_outset_id"><label for="HandleEdge_outset">outset</label></td><td><input name="HandleEdge_outset" id="HandleEdge_outset" aria-labeledby="HandleEdge_outset_id HandleEdge_outset_description" type="text" value="1.0"></td><td id="HandleEdge_outset_description"><p>extend the handle along the length of the edge (multiples of thickness)</p></td></tr>
+</table><h3 id="h-3" data-id="3" role="button" aria-expanded="true" tabindex="0" class="toggle open">WallRack Settings</h3>
+<table role="presentation" id="3">
+<tr><td id="x_id"><label for="x">x</label></td><td><input name="x" id="x" aria-labeledby="x_id x_description" type="text" value="200"></td><td id="x_description"><p>inner width in mm (unless outside selected)</p></td></tr>
+<tr><td id="y_id"><label for="y">y</label></td><td><input name="y" id="y" aria-labeledby="y_id y_description" type="text" value="50"></td><td id="y_description"><p>inner depth in mm (unless outside selected)</p></td></tr>
+<tr><td id="sh_id"><label for="sh">sh</label></td><td><input name="sh" id="sh" aria-labeledby="sh_id sh_description" type="text" value="100*3"></td><td id="sh_description"><p>sections bottom to top in mm <a href="https://florianfesti.github.io/boxes/html/usermanual.html#section-parameters">🛈</a></p></td></tr>
+<tr><td id="outside_id"><label for="outside">outside</label></td><td><input name="outside" type="hidden" value="0">
+<input name="outside" id="outside" aria-labeledby="outside_id outside_description" type="checkbox" value="1"></td><td id="outside_description"><p>treat sizes as outside measurements <a href="https://florianfesti.github.io/boxes/html/usermanual.html#outside">🛈</a></p></td></tr>
+<tr><td id="top_edge_id"><label for="top_edge">top_edge</label></td><td><select name="top_edge" id="top_edge" aria-labeledby="top_edge_id top_edge_description" size="1">
+<option value="e">e Straight Edge</option>
+<option value="E">E Straight Edge (outset by thickness)</option>
+<option value="G" selected="selected">G Edge with pear shaped mounting holes</option>
+<option value="y">y Handle for e.g. a drawer</option></select>
+</td><td id="top_edge_description"><p>edge type for top edge</p></td></tr>
+<tr><td id="full_height_top_id"><label for="full_height_top">full_height_top</label></td><td><input name="full_height_top" type="hidden" value="0">
+<input name="full_height_top" id="full_height_top" aria-labeledby="full_height_top_id full_height_top_description" type="checkbox" value="1" checked="checked"></td><td id="full_height_top_description"><p>Add full height of topmost rack to the back panel</p></td></tr>
+<tr><td id="wall_height_id"><label for="wall_height">wall_height</label></td><td><input name="wall_height" id="wall_height" aria-labeledby="wall_height_id wall_height_description" type="text" value="20.0"></td><td id="wall_height_description"><p>height of walls</p></td></tr>
+<tr><td id="back_height_id"><label for="back_height">back_height</label></td><td><input name="back_height" id="back_height" aria-labeledby="back_height_id back_height_description" type="text" value="1.5"></td><td id="back_height_description"><p>height of the back as fraction of the front height</p></td></tr>
+<tr><td id="side_edges_id"><label for="side_edges">side_edges</label></td><td><select name="side_edges" id="side_edges" aria-labeledby="side_edges_id side_edges_description" size="1">
+<option value="F">F Finger Joint (opposing side)</option>
+<option value="h" selected="selected">h Edge (parallel Finger Joint Holes)</option></select>
+</td><td id="side_edges_description"><p>edge type holding the shelves together</p></td></tr>
+<tr><td id="flat_bottom_id"><label for="flat_bottom">flat_bottom</label></td><td><input name="flat_bottom" type="hidden" value="0">
+<input name="flat_bottom" id="flat_bottom" aria-labeledby="flat_bottom_id flat_bottom_description" type="checkbox" value="1"></td><td id="flat_bottom_description"><p>Make bottom Flat, so that the rack can also stand</p></td></tr>
+</table><h3 id="h-4" data-id="4" role="button" aria-expanded="true" tabindex="0" class="toggle open">Default Settings</h3>
+<table role="presentation" id="4">
+<tr><td id="thickness_id"><label for="thickness">thickness</label></td><td><input name="thickness" id="thickness" aria-labeledby="thickness_id thickness_description" type="text" value="3.0"></td><td id="thickness_description"><p>thickness of the material (in mm) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#thickness">🛈</a></p></td></tr>
+<tr><td id="burn_id"><label for="burn">burn</label></td><td><input name="burn" id="burn" aria-labeledby="burn_id burn_description" type="text" value="0.1"></td><td id="burn_description"><p>burn correction (in mm)(bigger values for tighter fit) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#burn">🛈</a></p></td></tr>
+<tr><td id="format_id"><label for="format">format</label></td><td><select name="format" id="format" aria-labeledby="format_id format_description" size="1">
+    <option value="svg" selected="selected">svg</option>
+    <option value="svg_Ponoko">svg_Ponoko</option>
+    <option value="ps">ps</option>
+    <option value="lbrn2">lbrn2</option></select>
+</td><td id="format_description"><p>format of resulting file <a href="https://florianfesti.github.io/boxes/html/usermanual.html#format">🛈</a></p></td></tr>
+<tr><td id="labels_id"><label for="labels">labels</label></td><td><input name="labels" type="hidden" value="0">
+<input name="labels" id="labels" aria-labeledby="labels_id labels_description" type="checkbox" value="1" checked="checked"></td><td id="labels_description"><p>label the parts (where available)</p></td></tr>
+<tr><td id="reference_id"><label for="reference">reference</label></td><td><input name="reference" id="reference" aria-labeledby="reference_id reference_description" type="text" value="100.0"></td><td id="reference_description"><p>print reference rectangle with given length (in mm)(zero to disable) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#reference">🛈</a></p></td></tr>
+<tr><td id="tabs_id"><label for="tabs">tabs</label></td><td><input name="tabs" id="tabs" aria-labeledby="tabs_id tabs_description" type="text" value="0.0"></td><td id="tabs_description"><p>width of tabs holding the parts in place (in mm)(not supported everywhere) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#tabs">🛈</a></p></td></tr>
+<tr><td id="qr_code_id"><label for="qr_code">qr_code</label></td><td><input name="qr_code" type="hidden" value="0">
+<input name="qr_code" id="qr_code" aria-labeledby="qr_code_id qr_code_description" type="checkbox" value="1"></td><td id="qr_code_description"><p>Add a QR Code with link or command line to the generated output</p></td></tr>
+<tr><td id="inner_corners_id"><label for="inner_corners">inner_corners</label></td><td><select name="inner_corners" id="inner_corners" aria-labeledby="inner_corners_id inner_corners_description" size="1">
+    <option value="loop" selected="selected">loop</option>
+    <option value="corner">corner</option>
+    <option value="backarc">backarc</option></select>
+</td><td id="inner_corners_description"><p>style for inner corners <a href="https://florianfesti.github.io/boxes/html/usermanual.html#inner-corners">🛈</a></p></td></tr>
+<tr><td id="spacing_id"><label for="spacing">spacing</label></td><td><input name="spacing" id="spacing" aria-labeledby="spacing_id spacing_description" type="text" value="0.5"></td><td id="spacing_description"><p>spacing around parts (multiples of thickness [: extra space in mm]) <a href="https://florianfesti.github.io/boxes/html/usermanual.html#spacing">🛈</a></p></td></tr>
+<tr><td id="debug_id"><label for="debug">debug</label></td><td><input name="debug" type="hidden" value="0">
+<input name="debug" id="debug" aria-labeledby="debug_id debug_description" type="checkbox" value="1"></td><td id="debug_description"><p>print surrounding boxes for some structures <a href="https://florianfesti.github.io/boxes/html/usermanual.html#debug">🛈</a></p></td></tr>
+</table>
+<input type="hidden" name="language" id="language" value="None">
+
+<p>
+    <button name="render" value="1" formtarget="_blank">Generate</button>
+    <button name="render" value="2" formtarget="_self">Download</button>
+    <button name="render" value="0" formtarget="_self">Save to URL</button>
+    <button name="render" value="3" formtarget="_blank">QR Code</button>
+</p>
+</form>
+</div>
+
+<div class="clear"></div>
+<hr>
+<div class="description">
+<div>
+<img style="width:100%;" src="static/samples/WallRack.jpg" onerror="this.parentElement.innerHTML = 'There is no image yet. Please donate an image of your project on <a href=&quot;https://github.com/florianfesti/boxes/issues/628&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>GitHub</a>!';" alt="Picture of box.">
+</div>
+</div>
+</div>
+<div id="preview">
+  <div id="preview_buttons">
+    Zoom: 
+    <button type="button" onclick="preview_scale/=1.2; document.getElementById('preview_img').style.width = preview_scale + '%';">-</button>
+    <button type="button" onclick="preview_scale*= 1.2; document.getElementById('preview_img').style.width = preview_scale + '%';" >+</button>
+    <button type="button" onclick="preview_scale=100; document.getElementById('preview_img').style.width = preview_scale + '%';" >Reset</button>
+  </div>
+<div style="overflow: auto;">
+<figure id="preview_figure" style="width: max-content;">
+<img id="preview_img" style="width:100%" src="static/nothing.png">
+</figure>
+</div>
+</div>
+</body>
+</html>
+        
