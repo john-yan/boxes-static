@@ -155,6 +155,27 @@ await page.click("#nope");
 await page.waitForURL(/\/Nope/, { timeout: 10_000 });
 check(true, "unknown page falls back to a normal page load", path());
 
+// ---- 12. back restores the scroll position, like the original server
+await page.goto(`${BASE}/`);
+await page.evaluate(() => { window.__marker = "same-document"; });
+await page.waitForFunction(() => [...document.images].every((i) => i.complete)); // full page height
+const targetY = await page.evaluate(() => Math.floor(document.body.scrollHeight * 0.7));
+await page.evaluate((y) => window.scrollTo(0, y), targetY);
+// evaluate-click: a Playwright click would auto-scroll the link into view first
+await page.evaluate(() => document.querySelector("#search_id_ClosedBox a").click());
+await page.waitForSelector("#arguments");
+await page.goBack();
+await page.waitForSelector("#search_id_ClosedBox");
+// the restore retries while the swapped-in (cached) images settle the page height
+const restored = await page.waitForFunction(
+  (y) => Math.abs(window.scrollY - y) <= 50,
+  targetY,
+  { timeout: 5000 },
+).then(() => true, () => false);
+const backY = await page.evaluate(() => window.scrollY);
+check(restored, "Back returns to the gallery at the previous scroll position", `scrolled to ${targetY}px, back at ${backY}px`);
+check(await sameDoc(), "still the same document");
+
 check(errors.length === 0, "no page errors or unexpected HTTP errors", errors.slice(0, 3).join(" | "));
 
 await browser.close();
