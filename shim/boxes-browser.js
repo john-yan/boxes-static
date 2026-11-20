@@ -26,6 +26,10 @@
   const baseEl = document.querySelector("base");
   if (baseEl) baseEl.href = ROOT.href;
 
+  // In-page navigation owns the scroll position (restored on Back/Forward below);
+  // keep the browser from racing that with its own, clamp-prone restoration.
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
   let lastStatus = ""; // re-shown after a page swap (init progress may arrive while on the Menu)
   let pageGen = 0; // bumped on every page swap; async results from an older page are dropped
 
@@ -279,6 +283,8 @@
   const ONLOAD_RE = /^\s*(initPage|initArgsPage)\(\s*(\d*)\s*\)\s*;?\s*$/; // the only body onloads upstream emits
   let shown = location.pathname + location.search; // what the current content corresponds to
   let navToken = 0;
+  // Scroll offset to return to per page (path+query), recorded when leaving it.
+  const scrollMemo = new Map();
 
   // "ClosedBox" / "Menu" / "" (Gallery) for same-site page URLs; null for anything else
   // (external, static files, other paths) - those are left to the browser.
@@ -288,6 +294,25 @@
     if (rest === "") return "";
     const m = /^([A-Za-z0-9_]+)\/?$/.exec(rest);
     return m && !RESERVED.has(m[1]) ? m[1] : null;
+  }
+
+  // Back/forward: return to where the user was on that page, like a real navigation.
+  // The swapped-in images carry no size attributes, so the document may still be
+  // too short for the target offset until they load; keep retrying until the
+  // offset sticks - but never fight the user (input) or a newer swap (pageGen).
+  function restoreScroll(x, y, gen) {
+    const events = ["wheel", "touchstart", "keydown"];
+    let alive = true;
+    const cancel = () => { alive = false; };
+    const done = () => events.forEach((t) => window.removeEventListener(t, cancel));
+    events.forEach((t) => window.addEventListener(t, cancel, { passive: true }));
+    const deadline = performance.now() + 3000;
+    (function step() {
+      if (!alive || gen !== pageGen) return done();
+      window.scrollTo(x, y);
+      if ((window.scrollY >= y - 1 && window.scrollX >= x - 1) || performance.now() > deadline) return done();
+      requestAnimationFrame(step);
+    })();
   }
 
   function swapIn(doc, pageUrl, push) {
@@ -308,7 +333,12 @@
     document.body.replaceWith(doc.body);
 
     window.preview_scale = 100; // upstream global, initialised once at script load
-    window.scrollTo(0, 0);
+    if (push) {
+      window.scrollTo(0, 0); // a fresh page starts at the top, like a normal navigation
+    } else {
+      // back/forward: return to where the user was on the page being returned to
+      restoreScroll(...(scrollMemo.get(shown) || [0, 0]), pageGen);
+    }
     setupGeneratorPage(true);
     // what the browser would have done for <body onload="...">
     if (m) window[m[1]](m[2] === "" ? undefined : Number(m[2]));
@@ -317,6 +347,8 @@
 
   async function navigate(url, push) {
     const token = ++navToken;
+    // remember where the user is on the page being left, so Back can return to it
+    scrollMemo.set(shown, [window.scrollX, window.scrollY]);
     const rel = pageRel(url);
     try {
       if (rel === null) throw new Error("not a site page");
